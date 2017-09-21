@@ -25,7 +25,7 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;&nbsp;&nbsp;2.1 [Data Management in SD2E](docs/data_management.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;2.2 [Create HPC and STORAGE Systems](docs/generate_systems.md)
+&nbsp;&nbsp;&nbsp;&nbsp;2.2 [Generate HPC and STORAGE Systems](docs/generate_systems.md)
 
 
 <br>
