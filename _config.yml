@@ -1,3 +1,4 @@
+# bundle exec jekyll serve
 theme: jekyll-theme-slate
 title: Synergistic Discovery and Design Environment (SD2E)
 description: Documentation for the SD2E core platform and integrated web service APIs
