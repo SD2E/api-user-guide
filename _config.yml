@@ -1,4 +1,7 @@
 # bundle exec jekyll serve
-theme: jekyll-theme-slate
-title: Synergistic Discovery and Design Environment (SD2E)
+title: "SD2E: Synergistic Discovery and Design Environment"
 description: Documentation for the SD2E core platform and integrated web service APIs
+author:
+  name: TACC SD2E Team
+  email: blah@tacc.utexas.edu
+  github: SD2E
