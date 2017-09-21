@@ -4,8 +4,9 @@ title: Install and Configure the CLI
 tagline:
 ---
 
-The primary method for interacting with the SD2E platform is the Agave command
-line interface (CLI). The CLI is a collection of ~150 shell scripts for managing
+The primary method for interacting with the SD2E platform is the 
+[Agave command line interface (CLI)](https://agaveapi.co/).
+The CLI is a collection of ~150 shell scripts for managing
 authorization, files, systems, jobs, and more. 
 
 There are three methods to install the CLI:
@@ -82,7 +83,7 @@ Pull the latest image and verify CLI availability by performing:
 % docker run -it -v $HOME/.agave:/root/.agave sd2e/cloud-cli bash
 ```
 
-Then from within Docker:
+Then from within Docker, verify that the CLI is available:
 ```
 /home$ sd2e info
 
@@ -96,11 +97,23 @@ TACC Cloud API versions:
 <br>
 #### Influential environment variables
 
- * AGAVE_TENANT
- * AGAVE_USERNAME
- * AGAVE_KEY
- * AGAVE_JSON_PARSER = {json_mirror, jq, json, python, native}
- * AGAVE_DISABLE_AUTO_REFRESH
+<table style="width:100%" border="1px" cellpadding="5">
+  <tr>
+    <th align="left">environment variable</th>
+    <th>options</th>
+    <th align="left">description</th>
+  </tr>
+  <tr>
+    <td>AGAVE_JSON_PARSER</td>
+    <td align="center">json_mirror, jq, json, python, native</td>
+    <td>Set this to your favorite json parser (if installed)</td>
+  <tr>
+  </tr>
+    <td>AGAVE_DISABLE_AUTO_REFRESH</td>
+    <td align="center">1, 0</td>
+    <td>Set this to `1` to disable auto refresh of the OAuth2 token</td>
+  </tr>
+</table>
 
 ---
 Return to the [API Documentation Overview](../index.md)
