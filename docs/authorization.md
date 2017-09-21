@@ -4,9 +4,15 @@ title: Authorization with the SD2E Tenant
 tagline:
 ---
 
-Authorization is handled with OAuth2 authorization tokens. You can generate
-a token and save it to your ~/.agave/current configuration file by executing
-the following command:
+Authorization is handled with OAuth2 authorization tokens. Users are responsible
+for generating their own authorization tokens and, optionally, saving them in the
+`~/.agave/current` configuration file.
+
+<br>
+#### Generate authorization token
+
+Generate a token with the following command (the `-S` flag stores the token in 
+your Agave configuration file):
 ```
 % auth-tokens-create -S
 API password:   # enter TACC password
@@ -25,6 +31,9 @@ username: wallen
 time left: 14217 seconds
 expires at: Thu Sep 21 16:40:51 CDT 2017
 ```
+
+<br>
+#### Refresh authorization token
 
 When your token expires, there is no need to generate a new token. It can be
 refreshed by using the command:
