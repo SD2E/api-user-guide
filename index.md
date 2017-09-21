@@ -6,14 +6,14 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 ### Find documentation for:
 
-[1. Request Access to the SD2E Platform](request_access.md)
+[1. Request Access to the SD2E Platform](docs/request_access.md)
 
-[2. Install and Configure the CLI](install_cli.md)
+[2. Install and Configure the CLI](docs/install_cli.md)
 
-[3. Create the API Client Key](create_client.md)
+[3. Create the API Client Key](docs/create_client.md)
 
-[4. Authorization with the SD2E Tenant](authorization.md)
+[4. Authorization with the SD2E Tenant](docs/authorization.md)
 
-[5. Using the SD2E API](using_api.md)
+[5. Using the SD2E API](docs/using_api.md)
 
 
