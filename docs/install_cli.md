@@ -1,4 +1,8 @@
-### Install and Configure the CLI
+---
+layout: page
+title: Install and Configure the CLI
+tagline:
+---
 
 The primary method for interacting with the SD2E platform is the Agave command
 line interface (CLI). The CLI is a collection of ~150 shell scripts for managing
@@ -9,18 +13,22 @@ There are three methods to install the CLI:
 2. Manual install to a location of your choosing
 3. Pull a CLI Docker image
 
-#### 1. Run an installer script to install in ~/sd2e-cloud-cli/bin/
+<br>
+#### Run an installer script to install in ~/sd2e-cloud-cli/bin/
 
-Open a terminal window and perform the following:
-
+Open a terminal window and run the installer script:
 ```
-# Run the installer
 % curl -L https://raw.githubusercontent.com/sd2e/sd2e-cli/master/install/install.sh | sh
+```
 
-# Source your .bashrc
+This will install the executables and write an `export PATH` command to your
+`~/.bashrc`. To make the changes take effect immediately:
+```
 % source ~/.bashrc
+```
 
-# Verify the CLI is installed
+Finally, verify that the CLI has been installed by issuing the following:
+```
 % sd2e info
 
 DARPA SD2E version 1.0.1
@@ -31,23 +39,29 @@ TACC Cloud API versions:
         TACC Accounting API: v1
 ```
 
-#### 2. Manual install to a location of your choosing
+<br>
+#### Manual install to a location of your choosing
 
-Open a terminal window and perform the following:
+Open a terminal window and navigate to your preferred location for installation:
 
 ```
-# Navigate to a location of your choosing
 % mkdir sd2e-project && cd sd2e-project
+```
 
-# Download and unpack the CLI
+Download and unpack the CLI:
+```
 % curl -L https://raw.githubusercontent.com/sd2e/sd2e-cli/master/sd2e-cloud-cli.tgz -o sd2e-cloud-cli.tgz
 % tar -xvzf sd2e-cloud-cli.tgz
+```
 
-# Add the CLI executables to your $PATH
+Then add the CLI executables to your `PATH`:
+```
 % echo "PATH=\$PATH:$PWD/sd2e-cloud-cli/bin" >> ~/.bashrc
 % source ~/.bashrc
+```
 
-# Verify the CLI is installed
+Finally, verify that the CLI has been installed by issuing the following:
+```
 % sd2e info
 
 DARPA SD2E version 1.0.1
@@ -57,20 +71,36 @@ TACC Cloud API versions:
 	Reactors API: dev
 ```
 
-#### 3. Pull a CLI Docker image
+<br>
+#### Pull a CLI Docker image
 
+The CLI is also available as a Docker image. For this to work, it is assumed you
+have a reasonably recent version of [Docker](https://www.docker.com/) installed.
+Pull the latest image and verify CLI availability by performing:
 ```
-# Pull the latest image
 % docker pull sd2e/cloud-cli:latest
 % docker run -it -v $HOME/.agave:/root/.agave sd2e/cloud-cli bash
 ```
 
+Then from within Docker:
+```
+/home$ sd2e info
+
+DARPA SD2E version 1.0.1
+TACC Cloud API tenant: sd2e
+TACC Cloud API versions:
+	Science APIs: 2.2.5
+	Reactors API: dev
+```
+
+<br>
 #### Influential environment variables
 
-AGAVE_TENANT
-AGAVE_USERNAME
-AGAVE_KEY
-AGAVE_JSON_PARSER = json_mirror | jq | json | python | native
-AGAVE_DISABLE_AUTO_REFRESH
+ * AGAVE_TENANT
+ * AGAVE_USERNAME
+ * AGAVE_KEY
+ * AGAVE_JSON_PARSER = {json_mirror, jq, json, python, native}
+ * AGAVE_DISABLE_AUTO_REFRESH
 
-
+---
+Return to the [API Documentation Overview](../index.md)
