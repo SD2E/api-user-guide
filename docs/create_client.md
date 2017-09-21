@@ -9,7 +9,7 @@ SD2E platform. If you do not yet have the CLI installed and in your `$PATH`, fir
 go [here](install_cli.md).
 
 <br>
-#### Initiate with the SD2E Agave tenant:
+#### Initiate with the SD2E Agave tenant
 
 On the command line, perform: 
 ```
@@ -25,7 +25,7 @@ home directory: `~/.agave/current`
 #### Create API keys
 
 API keys are used to authenticate and store your user credentials for a specific 
-client applications. To generate API Keys:
+client application. To generate API Keys:
 ```
 % clients-create -S -N sd2e_client -D "My client used for interacting with SD2E"
 API username:   # enter TACC username
@@ -36,7 +36,7 @@ key: a7vddofNefw4j95Uwcd_fdJHdtsIa
 secret: Wsdhy_ckT3aneUWfVyZfdagFagLja
 ```
 
-Keep your kes secure and do not share with others.
+Keep your keys secure and do not share with others.
 
 <br>
 #### Listing and deleting API keys
@@ -52,9 +52,9 @@ DefaultApplication
 sd2e_client
 ```
 
-In this case, two clients exist for this tenant: the default `DefaultApplication`
-and newly generated `sd2e_client`. If needed, you can delete then regenerate 
-client API keys with the follwing:
+In this case, two clients exist for this user and on the current tenant: the
+default `DefaultApplication` and newly generated `sd2e_client`. If needed, you
+can delete then regenerate client API keys with the follwing:
 ```
 % clients-delete [CLIENT_NAME]
 ```
@@ -62,14 +62,15 @@ client API keys with the follwing:
 <br>
 #### The ~/.agave/current configuration file
 
-In addition to the tenant ID, your API keys are stored in the agave configuration
+In addition to the tenant ID, your API keys are stored in the Agave configuration
 file. To view the contents of the file:
 ```
 % cat ~/.agave/current
 ```
 
 CLI commands can be used to manage different configuration files for swapping
-between tenant and user space.
+between tenant and user space. Use the `-h` flag with any CLI command to learn
+more, e.g.: `tenants-init -h`.
 
 ---
 Return to the [API Documentation Overview](../index.md)
