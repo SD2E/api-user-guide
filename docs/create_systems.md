@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Generate HPC and STORAGE Systems
+title: Create Custom Systems
 tagline:
 ---
 
