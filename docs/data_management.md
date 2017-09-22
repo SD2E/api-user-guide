@@ -4,41 +4,28 @@ title: Data Management in SD2E
 tagline:
 ---
 
-Data is managed using the `files` service of the Agave CLI. `Files` commands can
-be used to upload and download data, remotely manage and organize data, importing
-external data.
+Data is managed using the `files` service of the Agave CLI. With many parallels in
+Linux file commands (`ls, mv, cp, rm,` etc.), Agave `files-*` commands can be used to 
+list files, upload and download data, remotely manage and organize data, and import
+external data from the web.
 
-`Files` commands act on Agave `systems`. See [generating systems](generate_systems.md)
-for more details.
+Agave `files-*` commands act on Agave `systems`. See the [systems basics](systems_basics.md)
+documentation for more details.
 
-<br>
-#### Find your systems
+This page is broken down into the following sections:
 
-Systems where you are able to store and access data (called STORAGE systems) can
-be found using the `systems-list` command:
-```
-% systems-list -S
-data-sd2e-projects-q0-ingest
-data-sd2e-projects-q0-examples
-data-tacc-work-username
-data-sd2e-community
-data-sd2e-app-assets
-```
+1. [Listing files and navigating](#listing-files-and-navigating)
+2. [Uploading and downloading via the CLI](#uploading-and-downloading-via-the-cli)
+3. [Other file operations](#other-file-operations)
+4. [Share files with another user](#share-files-with-another-user)
+5. [Import files from the web](#import-files-from-the-web)
+6. [The agave URI convention](#the-agave-uri-convention)
 
-Here is a quick summary of the storage systems:
-
-* `data-tacc-work-username`: Your personal directory on the TACC `$WORK` filesystem. You have +rw and sharing access. This will show up in the portal as **My Data**.
-* `data-sd2e-community`: Project-wide shared data. Unless you are specifically authorized, it is read-only. This will show up in the portal as **Community Data**.
-* `data-sd2e-projects-*`: These are subproject storage spaces. Your access rights will be variable. These will show up in the portal under **My Projects**.
-* `data-sd2e-app-assets`: This system is provate to SD2E staff and read-only. It will not show up in the portal.
-
-Next, we will practice file operations on your personal storage system,
-`data-tacc-work-username`. (Replace `username` with your TACC username).
 
 <br>
 #### Listing files and navigating
 
-To list the files available to you on the storage system, use:
+To list the files available to you on the STORAGE system, use:
 ```
 % files-list -S data-tacc-work-username -L /
 drwx------  username  4096  13:07  .
@@ -61,10 +48,13 @@ drwx------  username  4096  15:49  sd2e-data
 drwx------  username  4096  15:49  .
 ```
 
+*Tip: if you set `data-tacc-work-username` as your default system, then you 
+do not need to provide it on the command line. More info [here](systems_basics.md).*
+
 <br>
 #### Uploading and downloading via the CLI
 
-Upload a file from your local system to the storage system with:
+Upload a file from your local system to the STORAGE system with:
 ```
 % touch my_local_file.txt
 % files-upload -S data-tacc-work-username -F my_local_file.txt /sd2e-data/
@@ -76,7 +66,7 @@ drwx------  username  4096  15:53  .
 -rw-------  username  0     15:53  my_local_file.txt
 ```
 
-Copy the file to something with a new name, and download the result:
+Copy the file to something with a new name using the `files-copy` command:
 ```
 % files-copy -S data-tacc-work-username -D /sd2e-data/my_local_file.txt /sd2e-data/copy.txt
 Successfully copied /sd2e-data/my_local_file.txt to /sd2e-data/copy.txt
@@ -85,7 +75,10 @@ Successfully copied /sd2e-data/my_local_file.txt to /sd2e-data/copy.txt
 drwx------  username  4096  15:57  .
 -rw-------  username  0     15:57  copy.txt
 -rw-------  username  0     15:53  my_local_file.txt
+```
 
+Then download the result:
+```
 % files-get -S data-tacc-work-username /sd2e-data/copy.txt
 ######################################################################## 100.0%
 
@@ -97,42 +90,39 @@ copy.txt  my_local_file.txt
 #### Other file operations
 
 Files can also be moved, deleted, and renamed using the `files-move` and `files-delete`
-commands, with similar syntax to the `files-copy` command.
+commands, with similar syntax to the `files-copy` command. For example:
 ```
-% files-move
-
-% files-delete
+% files-move -S data-tacc-work-username -D /sd2e-data/file.txt /sd2e/my_local_file.txt
+% files-mkdir -S data-tacc-work-username -N subfolder/ /sd2e-data/
+% files-move -S data-tacc-work-username -D /sd2e-data/subfolder/file.txt /sd2e-data/file.txt
+% files-delete -S data-tacc-work-username /sd2e-data/copy.txt
 ```
 
 Be cautious with `files-move` and `files-delete` commands. Just like a Linux
 filesystem, files inadvertently deleted or written over are probably unrecoverable.
 
 <br>
-#### Set your default system
-
-You may find that most of the file operations you perform are on your private 
-TACC storage system - data-tacc-work-username. To avoid typing the full name of
-the system on every command line, set it as default with:
-```
-% systems-setdefault data-tacc-work-username
-Successfully set data-tacc-work-username as the default STORAGE system for username
-```
-
-<br>
-#### Coming soon
-
-Files import from unauthenticated HTTP
+#### Share files with another user
 
 Sharing with another username
 
-The agave:// URL convention
+<br>
+#### Import files from the web
+
+Files import from unauthenticated HTTP
+
+<br>
+#### The agave URI convention
+
+The agave:// URI convention
 
 
 <br>
 #### Get help
 
 Reminder: at any time, you can issue an Agave command with the `-h` flag to
-find more information on the function and usage of the command.
+find more information on the function and usage of the command. Extensive Agave
+documentation can be found [here](http://developer.agaveapi.co/).
 
 
 ---
