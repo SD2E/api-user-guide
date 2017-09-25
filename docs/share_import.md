@@ -27,33 +27,34 @@ View your own user profile by issuing:
 
 ```
 % profiles-list -v me
-{                                   
-  "first_name": "John",          
-  "last_name": "Doe",             
-  "full_name": "jdoe",            
-  "email": "jdoe@tacc.utexas.edu",
-  "phone": "",                      
-  "mobile_phone": "",               
-  "status": "",                     
+{
+  "first_name": "Joe",
+  "last_name": "User",
+  "full_name": "juser",
+  "email": "juser@example.org",
+  "phone": "",
+  "mobile_phone": "",
+  "status": "",
   "create_time": "20150223162108Z", 
-  "username": "jdoe"              
-}                                   
+  "username": "juser"
+}
 ```
 
 Each of the fields stored in the JSON object is queryable using the profiles-search
 command. Some more common examples include:
 ```
 # Search for another user by first name
-% profiles-search --rich 'first_name=John'
+% profiles-search --rich 'first_name=Joe'
 
 # Search for another user by last name
-% profiles-search --rich 'last_name=Doe'
+% profiles-search --rich 'last_name=User'
 
 # Search for another user by e-mail address
-% profiles-search --rich 'email=jdoe@tacc.utexas.edu'
+% profiles-search --rich 'email=juser@example.org
+'
 
 # Search for another user by guessing all or part of their username
-% profiles-search --rich 'username.like=*jdoe*'
+% profiles-search --rich 'username.like=*juser*'
 ```
 
 The `--rich` flag summarizes part of the JSON response in a human-friendly table.
