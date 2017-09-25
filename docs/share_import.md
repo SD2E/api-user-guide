@@ -123,7 +123,7 @@ flag are GUEST, USER, PUBLISHER, ADMIN, and OWNER.
 Finally, ask your collaborator to download the file with the exact same command
 you use to download the file:
 ```
-% files-import -S data-tacc-work-username sd2e-data/my_file.txt
+% files-get -S data-tacc-work-username sd2e-data/my_file.txt
 ```
 
 
