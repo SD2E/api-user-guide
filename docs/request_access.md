@@ -23,7 +23,7 @@ Request form. Your account request will be reviewed and approved in 1-2 days.
 Once you have e-mail confirmation of account creation, send an e-mail including
 your TACC username to:
 
-<blah@tacc.utexas.edu>
+`support-at-sd2e-dot-org`
 
 **Keep your password confidential.** 
 

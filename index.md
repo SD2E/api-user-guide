@@ -27,15 +27,17 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;&nbsp;&nbsp;2.1 [HPC and STORAGE Systems Basics](docs/systems_basics.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;2.2 [Data Management in SD2E](docs/data_management.md)
+&nbsp;&nbsp;&nbsp;&nbsp;2.2 [Data Management: File Operations](docs/data_management.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;2.3 [Create Private Systems](docs/create_systems.md)
+&nbsp;&nbsp;&nbsp;&nbsp;2.3 [Data Management: Share and Import](docs/share_import.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;2.4 [Build an Application](docs/build_application.md)
+&nbsp;&nbsp;&nbsp;&nbsp;2.4 [Create Private Systems](docs/create_systems.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;2.5 [Pepare and Submit a Job](docs/submit_job.md)
+&nbsp;&nbsp;&nbsp;&nbsp;2.5 [Build an Application](docs/build_application.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;2.6 [Share an Application with Others](docs/share_application.md)
+&nbsp;&nbsp;&nbsp;&nbsp;2.6 [Pepare and Submit a Job](docs/submit_job.md)
+
+&nbsp;&nbsp;&nbsp;&nbsp;2.7 [Share an Application with Others](docs/share_application.md)
 
 &nbsp;&nbsp;**3 Advanced SD2E Features**
 
@@ -49,5 +51,5 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 #### Get Help
 
 You can get more help by visiting the main [SD2E website](http://sd2e.org), or
-e-mailing us at <blah@tacc.utexas.edu>.
+e-mailing us at `support-at-sd2e-dot-org`.
 
