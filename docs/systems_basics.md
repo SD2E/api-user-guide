@@ -44,8 +44,9 @@ can be found with the following command:
 hpc-tacc-maverick
 cli-tacc-maverick
 ```
+*---More on HPC systems coming soon---*
 
-(*Tip: use "`systems-list -h`" to see more usage options*)
+*Tip: use "`systems-list -h`" to see more usage options*
 
 <br>
 #### Verbose system information
