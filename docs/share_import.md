@@ -1,15 +1,41 @@
 ---
 layout: page
-title: Data Management
+title: "Data Management:"
 tagline: Share and Import
 ---
 
+The Agave CLI makes it possible to share data with other users on the SD2E
+tenant, and import data from the web. Use your best judgement in deciding
+whether to copy shared data or link against shared data with the understanding
+that storage space is limited.
+
 This page is broken down into the following sections:
 
+1. [Find another user](#find-another-user)
 1. [Share files with another user](#share-files-with-another-user)
 2. [Share files using postits](#share-files-using-postits)
 3. [Import files from other systems](#import-files-from-other-systems)
 4. [Import files from the web](#import-files-from-the-web)
+
+
+<br>
+#### Find another user
+To share a file with another user on the SD2E tenant, you must first know their
+username. The Agave CLI has a set of tools that can be used to find other users.
+View your own user profile by issuing:
+
+```
+profiles-list -v me
+```
+
+Search for your colleagues either by name (`-N`), e-mail address (`-E`), or 
+username (`-U`), provided they are authorized on the SD2E tenant:
+
+```
+profiles-list -v -N "My Collaborator"
+profiles-list -v -E "my_collaborator@email.edu"
+profiles-list -v -U my_collaborator
+```
 
 <br>
 #### Share files with another user
