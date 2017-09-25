@@ -31,15 +31,15 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;&nbsp;&nbsp;2.4 [Pepare and Submit a Job](docs/submit_job.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;2.4 [Share an Application with Others](docs/share_application.md)
+&nbsp;&nbsp;&nbsp;&nbsp;2.5 [Share an Application with Others](docs/share_application.md)
 
 &nbsp;&nbsp;**3 Advanced SD2E Features**
 
-&nbsp;&nbsp;&nbsp;&nbsp;2.2 [Create Custom Systems](docs/create_systems.md)
+&nbsp;&nbsp;&nbsp;&nbsp;3.1 [Create Custom Systems](docs/create_systems.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;3.1 Docker / Singularity Containers (*coming soon*)
+&nbsp;&nbsp;&nbsp;&nbsp;3.2 Docker / Singularity Containers (*coming soon*)
 
-&nbsp;&nbsp;&nbsp;&nbsp;3.2 Integration with Jupyter (*coming soon*)
+&nbsp;&nbsp;&nbsp;&nbsp;3.3 Integration with Jupyter (*coming soon*)
 
 
 
