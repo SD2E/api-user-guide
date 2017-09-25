@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Data Management:"
-tagline: Share and Import
+title: "Data Management: Share and Import"
+tagline:
 ---
 
 The Agave CLI makes it possible to share data with other users on the SD2E
@@ -12,10 +12,11 @@ that storage space is limited.
 This page is broken down into the following sections:
 
 1. [Find another user](#find-another-user)
-1. [Share files with another user](#share-files-with-another-user)
-2. [Share files using postits](#share-files-using-postits)
-3. [Import files from other systems](#import-files-from-other-systems)
-4. [Import files from the web](#import-files-from-the-web)
+2. [Share files with another user](#share-files-with-another-user)
+3. [Share files using postits](#share-files-using-postits)
+4. [Import files from other systems](#import-files-from-other-systems)
+5. [Import files from the web](#import-files-from-the-web)
+6. [Further help](#further-help)
 
 
 <br>
@@ -25,17 +26,41 @@ username. The Agave CLI has a set of tools that can be used to find other users.
 View your own user profile by issuing:
 
 ```
-profiles-list -v me
+% profiles-list -v me
+{                                   
+  "first_name": "John",          
+  "last_name": "Doe",             
+  "full_name": "jdoe",            
+  "email": "jdoe@tacc.utexas.edu",
+  "phone": "",                      
+  "mobile_phone": "",               
+  "status": "",                     
+  "create_time": "20150223162108Z", 
+  "username": "jdoe"              
+}                                   
 ```
 
-Search for your colleagues either by name (`-N`), e-mail address (`-E`), or 
-username (`-U`), provided they are authorized on the SD2E tenant:
+Each of the fields stored in the JSON object is queryable using the profiles-search
+command. Some more common examples include:
+```
+# Search for another user by first name
+% profiles-search --rich 'first_name=John'
 
+# Search for another user by last name
+% profiles-search --rich 'last_name=Doe'
+
+# Search for another user by e-mail address
+% profiles-search --rich 'email=jdoe@tacc.utexas.edu'
+
+# Search for another user by guessing all or part of their username
+% profiles-search --rich 'username.like=*jdoe*'
 ```
-profiles-list -v -N "My Collaborator"
-profiles-list -v -E "my_collaborator@email.edu"
-profiles-list -v -U my_collaborator
-```
+
+The `--rich` flag summarizes part of the JSON response in a human-friendly table.
+Note: There is a file called 'richtext' in the CLI bin directory that needs to
+be updated for `profiles-search`. Fields were changed as some point from `firstName`
+and `lastName` to `first_name` and `last_name`. Also, `institution` is no longer
+a field so it must be removed.
 
 <br>
 #### Share files with another user
@@ -49,26 +74,58 @@ permissions on an existing file on the STORAGE system, issue:
 The output should look similar to:
 ```
 sd2e READ WRITE EXECUTE
-vaughn READ WRITE EXECUTE
 username READ WRITE EXECUTE
+vaughn READ WRITE EXECUTE
 ```
 
 To add permissions for another user to view the file, use the `files-pems-update`
 command:
 ```
-% files-pems-update -U my_collaborator -P ALL sd2e-data/my_file.txt
+% files-pems-update -U collaborator -P ALL sd2e-data/my_file.txt
 % files-pems-list -S data-tacc-work-username sd2e-data/my_file.txt
 
-my_collaborator READ WRITE EXECUTE
+collaborator READ WRITE EXECUTE
 sd2e READ WRITE EXECUTE
-vaughn READ WRITE EXECUTE
 username READ WRITE EXECUTE
+vaughn READ WRITE EXECUTE
 ```
 
-Now, a user with username `my_collaborator` has permissions to access the file.
+Now, a user with username `collaborator` has permissions to access the file.
 Valid values for setting permission with the `-P` flag are READ, WRITE, EXECUTE,
 READ_WRITE, READ_EXECUTE, WRITE_EXECUTE, ALL, and NONE. This same action can be
 performed recursively on directories using the `-R` flag.
+
+Next, the collaborator needs the correct permissions to access your STORAGE
+system. To see who has access to your STORAGE system, perform:
+```
+% systems-roles-list data-tacc-work-username
+vaughn OWNER
+sd2e ADMIN
+username ADMIN
+```
+
+To add your collaborator to your system, use the `systems-roles-addupdate` command:
+```
+% systems-roles-addupdate -u collaborator -r GUEST data-tacc-work-username 
+Successfully updated roles for user collaborator on data-tacc-work-username
+
+% systems-roles-list data-tacc-work-username
+vaughn OWNER
+collaborator GUEST
+sd2e ADMIN
+username ADMIN
+```
+
+Now, a user with username `collaborator` can see files with the appropriate
+permissions on your STORAGE system. Valid values for setting a role with the `-r` 
+flag are GUEST, USER, PUBLISHER, ADMIN, and OWNER.
+
+Finally, ask your collaborator to download the file with the exact same command
+you use to download the file:
+```
+% files-import -S data-tacc-work-username sd2e-data/my_file.txt
+```
+
 
 <br>
 #### Share files using postits
@@ -137,7 +194,7 @@ The `-W` flag demonstrates a feature that sends an e-mail when the transfer is
 complete.
 
 <br>
-#### Get help
+#### Further help
 
 Reminder: at any time, you can issue an Agave command with the `-h` flag to
 find more information on the function and usage of the command. Extensive Agave
