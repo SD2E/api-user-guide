@@ -50,14 +50,14 @@ command. Some more common examples include:
 % profiles-search --rich 'last_name=User'
 
 # Search for another user by e-mail address
-% profiles-search --rich 'email=juser@example.org
-'
+% profiles-search --rich 'email=juser@example.org'
 
 # Search for another user by guessing all or part of their username
 % profiles-search --rich 'username.like=*juser*'
 ```
 
 The `--rich` flag summarizes part of the JSON response in a human-friendly table.
+
 Note: There is a file called 'richtext' in the CLI bin directory that needs to
 be updated for `profiles-search`. Fields were changed as some point from `firstName`
 and `lastName` to `first_name` and `last_name`. Also, `institution` is no longer

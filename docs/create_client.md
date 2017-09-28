@@ -54,7 +54,7 @@ sd2e_client
 
 In this case, two clients exist for this user and on the current tenant: the
 default `DefaultApplication` and newly generated `sd2e_client`. If needed, you
-can delete then regenerate client API keys with the follwing:
+can delete then regenerate client API keys with the following:
 ```
 % clients-delete [CLIENT_NAME]
 ```
