@@ -31,13 +31,15 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;&nbsp;&nbsp;2.3 [Data Management: Share and Import](docs/share_import.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;2.4 [Create Private Systems](docs/create_systems.md)
+&nbsp;&nbsp;&nbsp;&nbsp;2.4 [Find an Application](docs/find_application.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;2.5 [Build an Application](docs/build_application.md)
+&nbsp;&nbsp;&nbsp;&nbsp;2.5 [Prepare and Submit a Job](docs/submit_job.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;2.6 [Pepare and Submit a Job](docs/submit_job.md)
+&nbsp;&nbsp;&nbsp;&nbsp;2.6 [Create Private Systems](docs/create_systems.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;2.7 [Share an Application with Others](docs/share_application.md)
+&nbsp;&nbsp;&nbsp;&nbsp;2.7 [Create Custom Application](docs/create_application.md)
+
+&nbsp;&nbsp;&nbsp;&nbsp;2.8 [Share an Application with Others](docs/share_application.md)
 
 &nbsp;&nbsp;**3 Advanced SD2E Features**
 
