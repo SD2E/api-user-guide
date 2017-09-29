@@ -19,7 +19,7 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;&nbsp;&nbsp;1.3 [Create the Client API Keys](docs/create_client.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;1.4 [Authorization with the SD2E Tenant](docs/authorization.md)
+&nbsp;&nbsp;&nbsp;&nbsp;1.4 [Authorize with the SD2E Tenant](docs/authorization.md)
 
 &nbsp;&nbsp;&nbsp;&nbsp;1.5 [SSH Key Pairs](docs/ssh_keys.md)
 

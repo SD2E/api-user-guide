@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Authorization with the SD2E Tenant
+title: Authorize with the SD2E Tenant
 tagline:
 ---
 
