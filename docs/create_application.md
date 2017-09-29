@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Build an Application
+title: Create Custom Applications
 tagline:
 ---
 

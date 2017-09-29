@@ -39,7 +39,7 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;&nbsp;&nbsp;3.1 [Create Private Systems](docs/create_systems.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;3.2 [Create Custom Application](docs/create_application.md)
+&nbsp;&nbsp;&nbsp;&nbsp;3.2 [Create Custom Applications](docs/create_application.md)
 
 &nbsp;&nbsp;&nbsp;&nbsp;3.3 [Share an Application with Others](docs/share_application.md)
 
