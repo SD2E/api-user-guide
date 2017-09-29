@@ -35,17 +35,19 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;&nbsp;&nbsp;2.5 [Prepare and Submit a Job](docs/submit_job.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;2.6 [Create Private Systems](docs/create_systems.md)
+&nbsp;&nbsp;**3 Customizing the SD2E API**
 
-&nbsp;&nbsp;&nbsp;&nbsp;2.7 [Create Custom Application](docs/create_application.md)
+&nbsp;&nbsp;&nbsp;&nbsp;3.1 [Create Private Systems](docs/create_systems.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;2.8 [Share an Application with Others](docs/share_application.md)
+&nbsp;&nbsp;&nbsp;&nbsp;3.2 [Create Custom Application](docs/create_application.md)
 
-&nbsp;&nbsp;**3 Advanced SD2E Features**
+&nbsp;&nbsp;&nbsp;&nbsp;3.3 [Share an Application with Others](docs/share_application.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;3.1 Docker / Singularity Containers (*coming soon*)
+&nbsp;&nbsp;**4 Advanced SD2E Features**
 
-&nbsp;&nbsp;&nbsp;&nbsp;3.2 Integration with Jupyter (*coming soon*)
+&nbsp;&nbsp;&nbsp;&nbsp;4.1 Docker / Singularity Containers (*coming soon*)
+
+&nbsp;&nbsp;&nbsp;&nbsp;4.2 Integration with Jupyter (*coming soon*)
 
 
 
