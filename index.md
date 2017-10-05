@@ -43,6 +43,8 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;&nbsp;&nbsp;3.3 [Share an Application with Others](docs/share_application.md)
 
+&nbsp;&nbsp;&nbsp;&nbsp;3.4 [Modify Existing Systems and Applications](docs/modify.md)
+
 &nbsp;&nbsp;**4 Advanced SD2E Features**
 
 &nbsp;&nbsp;&nbsp;&nbsp;4.1 Docker / Singularity Containers (*coming soon*)
