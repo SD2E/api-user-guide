@@ -8,12 +8,12 @@ author :
   email : blah@tacc.utexas.edu
   github : SD2E
 
-production_url : https://wjallen.github.io/sd2e-api-docs
+production_url : https://sd2e.org/api-user-guide/
 markdown: kramdown
 
 JB :
   version : 0.3.0
-  BASE_PATH : https://wjallen.github.io/sd2e-api-docs
+  BASE_PATH : http://sd2e.org/api-user-guide/
   archive_path: nil
   categories_path : nil
   tags_path : nil
