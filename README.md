@@ -2,5 +2,5 @@
 
 Docs for SD2E core platform and additional integrated web service APIs.
 
-https://wjallen.github.io/sd2e-api-docs/
+https://sd2e.github.io/api-user-guide/
 
