@@ -11,7 +11,7 @@ on hubs such as
 [BioContainers](https://biocontainers.pro/registry/).
 
 This tutorial is a quick and dirty summary of how to build your own Docker image
-as if there is none available for your application. This is not meant to replace
+as if there is not one available for your application. This is not meant to replace
 the full [Docker documentation](https://docs.docker.com/develop/). Please note
 that [Singularity images](http://singularity.lbl.gov/docs-hpc) are also amenable
 to this infrastructure.
@@ -37,7 +37,7 @@ Also, now is a good time to prepare the `src/` directory in the applicaiton
 bundle for installation. Navigate to that directory and remove the template
 script:
 ```
-% cd fastqc/src/
+% cd ~/fastqc/src/
 % rm hello.sh
 ```
 
@@ -89,7 +89,7 @@ In this instance, we could have downloaded the source zip file for FastQC direct
 to our `src/` directory, then mounted that directory within the image, e.g.:
 ```
 % pwd
-~/reactors-etl/reactors/fastqc/src/
+~/fastqc/src/
 % wget https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.5.zip
 % docker run --rm -it -v $PWD:/src sd2e/base:ubuntu16
 ...etc
@@ -97,13 +97,13 @@ to our `src/` directory, then mounted that directory within the image, e.g.:
 That path is perfectly reasonable and can be followed here. However, some packages 
 have very large zip or tar.gz files (100s of MB), and would be cumbersome to keep 
 in this `fastqc` app folder. It is up to the app developer to find the balance
-between completeness of data and disk usage.
+between completeness of data and responsible disk usage.
 
 Here, we decide to not download the source permanently. Instead, we can make
 a record of where the source came from. For example:
 ```
 % pwd
-~/reactors-etl/reactors/fastqc/src/
+~/fastqc/src/
 % echo "Source: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.5.zip" >> README.md
 ```
 
@@ -111,7 +111,8 @@ a record of where the source came from. For example:
 #### Write the Dockerfile
 
 Take the steps required to install your package and translate them into a
-resonable `Dockerfile`. The `Dockerfile` should be located at the root directory::
+resonable `Dockerfile`. The `Dockerfile` should be located at the root directory,
+`~/fastqc/Dockerfile`:
 ```
 FROM sd2e/base:ubuntu16
 
@@ -151,9 +152,11 @@ At this time, it might be prudent to set up a test with real data as well. The
 template app does not have this directory, but we can add an `example` directory
 to our root to hold example data:
 ```
-% cd ~fastqc/
+% cd ~/fastqc/
 % mkdir example/
 % cd example/
+
+# Download random sample data or provide your own
 % wget https://molb7621.github.io/workshop/_downloads/SP1.fq
 ```
 
@@ -163,7 +166,7 @@ Next, run the FastQC pipeline on the example data:
 ```
 
 If successful, you should find the output files `SP1_fastqc.html` and `SP1_fastqc.zip`
-in the `~fastqc/example/` directory.
+in the `~/fastqc/example/` directory.
 
 
 <br> 
@@ -171,11 +174,24 @@ in the `~fastqc/example/` directory.
 
 Finally, push your Docker image to a publically available repository. It can be
 your own personal repository as long as it is set to public, and not to private.
-To push to your own repository, first tag it with your Docker ID, then push
-it to Docker Hub:
+To push to your own repository, first tag it with your Docker ID:
 ```
 % docker tag fastqc:0.11.5 USERNAME/fastqc:0.11.5
-% docker push USERNAME/fastqc:0.11.5
+```
+
+In the above, replace `USERNAME` with your Docker ID. Next, edit the
+`~/fastqc/build.sh` script as follows:
+```
+#!/usr/bin/env bash                                               
+                                                                  
+CONTAINER_TAG="USERNAME/fastqc:0.11.5"                        
+                                                                  
+docker build -t ${CONTAINER_TAG} . && docker push ${CONTAINER_TAG}
+```
+
+And execute the script with bash to push your image to the cloud:
+```
+% bash build.sh
 ```
 
 Next, we will continue to edit files in the app bundle to call this new image.

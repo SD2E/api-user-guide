@@ -8,7 +8,7 @@ If you have been following along, your fastqc app directory should contain:
 ```
 fastqc/
 ├── Dockerfile                 # done !
-├── build.sh
+├── build.sh                   # done !
 ├── deploy.sh
 ├── example                    # done !
 │   ├── SP1.fq                 # done !

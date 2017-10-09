@@ -11,14 +11,14 @@ looking for is not available? Using the Agave CLI, you can create your own.
 <br> 
 #### Components of an app
 
-The essential components you need to create your own app is:
+The essential components you need to create your own app are:
 
-1. A docker or singularity container containing the executable and all runtime dependencies
+1. A Docker or Singularity image containing the executable and all runtime dependencies
 2. A wrapper script (generally written in bash) that runs the app
 3. A test script (also written in bash) for testing the app outside of the Agave environment
 
 Several example apps exist and all components are visible. For example, visit the
-[SD2E docker hub](https://hub.docker.com/u/sd2e/) to view existing app containers.
+[SD2E Docker hub](https://hub.docker.com/u/sd2e/) to view existing app containers.
 And, example app bundles can be viewed on the
 [SD2E github page](https://github.com/SD2E/reactors-etl/tree/master/reactors).
 
@@ -26,7 +26,7 @@ And, example app bundles can be viewed on the
 #### Create your own by example
 
 The best way to demonstrate the creation of a custom app is by example. The 
-following sub-pages will go through the process of:
+following sub-pages will go through the process:
 
 1. [Clone an example app](create_application_01.md)
 2. [Containerize your app](create_application_02.md)

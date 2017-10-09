@@ -61,7 +61,7 @@ hello-container/
 At the top level, you will find a `Dockerfile` and `build.sh` script. These are
 necessary for building the container reproducibly, and having them will facilitate 
 future app updates. The `deploy.sh` script is the final script of the app building
-process which helps the user to add their app to the Agave SD2E tenant.
+process which helps the user add their app to the Agave SD2E tenant.
 
 One of the subdirectories is named `hello-container-0.1.0/`. This directory contains
 both the `runner-template.sh`, which is a script directing how the app should be
@@ -75,7 +75,7 @@ etc.
 
 Finally, the other subdirectory is a `src/` directory. It contains the source
 code and runtime assets (reference files, libraries, etc.) required for your app.
-In this example app, the only source is the simple `hello.sh` shell script.
+In this example app, the only source file is the simple `hello.sh` shell script.
 
 
 <br>
@@ -109,7 +109,8 @@ fastqc/
     └── hello.sh
 ```
 
-Next, we will edit each of the files in turn.
+From this point forward, we will refer to this location on our local machine
+as `~/fastqc/`. Next, we will edit the files necessary to containerize the app.
 
 Proceed to [Containerize your app](create_application_02.md)
 
