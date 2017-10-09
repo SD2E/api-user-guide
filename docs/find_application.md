@@ -15,6 +15,9 @@ The `apps-list` command can be used to list all applications you have access to:
 ```
 % apps-list
 kallisto-0.43.1u1
+msf-0.1.0u2
+lcms-0.1.0u1
+fcs-tasbe-0.1.0u1
 sailfish-0.10.1u1
 ```
 
