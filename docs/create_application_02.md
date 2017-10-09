@@ -16,15 +16,19 @@ the full [Docker documentation](https://docs.docker.com/develop/). Please note
 that [Singularity images](http://singularity.lbl.gov/docs-hpc) are also amenable
 to this infrastructure.
 
+We will continue with the example of FastQC from the
+[previous page](create_application_01.md).
+
 <br>
 #### Choose a source image
 
-*Prerequisite: `docker` should be installed*
+*Prerequisite: You should have a [Docker ID](https://hub.docker.com) and 
+`docker` should be installed on your local machine*
 
 The only dependency for [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 is a reasonably recent Java Runtime Environment.
-Thus, most modern Linux OSes should suffice. The SD2E Docker hub provides base
-images for this. To begin, pull the ubuntu16 base image from the SD2E Docker hub:
+Thus, most modern Linux OS-es should suffice. The SD2E Docker hub provides base
+images for this. To begin, pull the `ubuntu16` base image from the SD2E Docker hub:
 ```
 % docker pull sd2e/base:ubuntu16
 ```
@@ -61,9 +65,9 @@ test the installation interactively, and record the steps for your Dockerfile:
 [docker] % chmod +x FastQC/fastqc
 ```
 
-After a bit of trial and error, the commands above are the steps I found were
-required to install the `fastqc` executable. You can test to make sure it is
-working by, for example:
+After a bit of trial and error, the commands above are
+the shortest path to install the `fastqc` executable. You can test it from within
+the docker image to make sure it is working by, for example:
 ```
 [docker] % /FastQC/fastqc -h
 
@@ -82,25 +86,32 @@ SYNOPSIS
 #### Note on source code and mounting directories
 
 In this instance, we could have downloaded the source zip file for FastQC directly
-to our `src/` directory, then mounted that directory within the image. That path
-is perfectly reasonable and can be followed here. However, some packages have very
-large zip or tar.gz files (100s of MB), and would be cumbersome to keep in our
-`fastqc` app folder. It is up to the app developer to find the balance between
-completeness of data and disk usage.
-
-Here, we decide to not download the source permanently, but it is good practice
-to make a record of where the source came from. For example:
+to our `src/` directory, then mounted that directory within the image, e.g.:
 ```
 % pwd
-~/fastqc/src/
-% echo "Download the source from https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.5.zip" >> README.md
+~/reactors-etl/reactors/fastqc/src/
+% wget https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.5.zip
+% docker run --rm -it -v $PWD:/src sd2e/base:ubuntu16
+...etc
+```
+That path is perfectly reasonable and can be followed here. However, some packages 
+have very large zip or tar.gz files (100s of MB), and would be cumbersome to keep 
+in this `fastqc` app folder. It is up to the app developer to find the balance
+between completeness of data and disk usage.
+
+Here, we decide to not download the source permanently. Instead, we can make
+a record of where the source came from. For example:
+```
+% pwd
+~/reactors-etl/reactors/fastqc/src/
+% echo "Source: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.5.zip" >> README.md
 ```
 
 <br>
 #### Write the Dockerfile
 
 Take the steps required to install your package and translate them into a
-resonable Dockerfile. The Dockerfile should be located at the root directory:
+resonable `Dockerfile`. The `Dockerfile` should be located at the root directory::
 ```
 FROM sd2e/base:ubuntu16
 
@@ -118,36 +129,60 @@ RUN chmod +x FastQC/fastqc
 ENV PATH "/FastQC/:$PATH"
 ```
 
-<br>
-#### Try building the image and make sure it works
+The final line of this file adds the location of the executable to the `PATH`
+so it is easier to call from the command line.
 
-The command to build your new image based on your docker container looks like:
+<br>
+#### Build and test the image
+
+Given that the `Dockerfile` is in your current directory, the command to build
+a new Docker image is:
 ```
 % docker build -f Dockerfile --force-rm -t fastqc:0.11.5 ./
 ```
 
-Test your image with an example command:
+Test the new image with an example command:
 ```
 % docker run fastqc:0.11.5 fastqc -h
 ```
 
-If you see the help text, odds are the install went correctly. To do a more
-advanced test on real data, try something like:
+If you see the FastQC help text, the installation likely was successful.
+At this time, it might be prudent to set up a test with real data as well. The
+template app does not have this directory, but we can add an `example` directory
+to our root to hold example data:
 ```
-% ls
-my_example_data.fq
-$ docker run -v $PWD:/data fastqc:0.11.5 fastqc -o /data/ /data/my_example_data.fq
+% cd ~fastqc/
+% mkdir example/
+% cd example/
+% wget https://molb7621.github.io/workshop/_downloads/SP1.fq
 ```
+
+Next, run the FastQC pipeline on the example data:
+```
+% docker run -v $PWD:/data fastqc:0.11.5 fastqc -o /data /data/SP1.fq
+```
+
+If successful, you should find the output files `SP1_fastqc.html` and `SP1_fastqc.zip`
+in the `~fastqc/example/` directory.
 
 
 <br> 
 #### Push your image to the cloud
 
 Finally, push your Docker image to a publically available repository. It can be
-your own personal repository as long as it is set to public, and not to private:
+your own personal repository as long as it is set to public, and not to private.
+To push to your own repository, first tag it with your Docker ID, then push
+it to Docker Hub:
 ```
-% docker push fastqc:0.11.5
+% docker tag fastqc:0.11.5 USERNAME/fastqc:0.11.5
+% docker push USERNAME/fastqc:0.11.5
 ```
+
+Next, we will continue to edit files in the app bundle to call this new image.
+
+Proceed to [Build wrapper and test scripts](create_application_03.md)
+
+Go back to [Create Custom Applications](create_application.md)
 
 ---
 Return to the [API Documentation Overview](../index.md)
