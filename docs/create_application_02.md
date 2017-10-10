@@ -172,7 +172,7 @@ in the `~/fastqc/example/` directory.
 <br> 
 #### Push your image to the cloud
 
-Finally, push your Docker image to a publically available repository. It can be
+Finally, push your Docker image to a publicly available repository. It can be
 your own personal repository as long as it is set to public, and not to private.
 To push to your own repository, first tag it with your Docker ID:
 ```

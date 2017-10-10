@@ -47,7 +47,7 @@ details).
 
 If you staged your own data to your private STORAGE system, now is the time to
 provide the path to your data. This is easy to do using Agave URIs. For example,
-see these URIs describing the path to publically accessible data for this 
+see these URIs describing the path to publicly accessible data for this 
 kallisto job:
 ```
  "inputs": {
