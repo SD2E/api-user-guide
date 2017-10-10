@@ -37,7 +37,6 @@ integration with Agave later. Edit the test script located at
 ```
 #!/usr/bin/env bash
 
-output_dir="/example"
 fastq="/example/SP1.fq"
 example_mount="-v ${PWD}/../example:/example:rw"
 
@@ -46,7 +45,7 @@ CONTAINER_IMAGE="index.docker.io/USERNAME/fastqc:0.11.5"
 . _util/container_exec.sh
 
 COMMAND="fastqc"
-PARAMS="-o ${output_dir} ${fastq}"
+PARAMS="${fastq}"
 
 DEBUG=1 container_exec ${example_mount} ${CONTAINER_IMAGE} ${COMMAND} ${PARAMS}
 
@@ -75,8 +74,8 @@ run_tests && \
     cleanup
 ```
 
-The `output_dir` and `fastq` variables are the two runtime variables used in this
-app (provided by the user through Agave). They are defined here for testing
+The `fastq` variables is the only runtime variable used in this
+app (provided by the user through Agave). It is explicitly defined here for testing
 purposes, but will be removed for the purposes of the wrapper script. Similarly,
 the `example_mount` directory is also mounted to the container only for purposes
 of testing, but will not be mounted in production.
@@ -84,8 +83,8 @@ of testing, but will not be mounted in production.
 For the `CONTAINER_IMAGE` variable,
 replace `USERNAME` with your Docker ID (or project space where the image is
 located). Also in the above file, the `container_exec.sh` script is sourced, `fastqc`
-is the command to execute, and the parameters passed to the command are an
-output directory path (`-o ${output_dir}`) and an input fastq file (`${fastq}`).
+is the command to execute, and the parameter passed to the command is
+the input fastq file (`${fastq}`).
 The final command in the script (begging with `DEBUG=1`) is the main container
 run command. It is written in this way to be flexible and compatible to both
 Docker and Singularity.
@@ -96,7 +95,7 @@ they are blank, and it is up to the user to write appropriate tests if desired.
 Test your workflow by executing:
 ```
 % bash tester.sh
-+ docker run --rm --user=0:20 -v /Users/username/fastqc/fastqc-0.11.5:/ home:rw -w /home -v /Users/username/fastqc/fastqc-0.11.5/../example:/ex ample:rw index.docker.io/USERNAME/fastqc:0.11.5 fastqc -o /example /example/SP1.fq
++ docker run --rm --user=0:20 -v /Users/username/fastqc/fastqc-0.11.5:/ home:rw -w /home -v /Users/username/fastqc/fastqc-0.11.5/../example:/ex ample:rw index.docker.io/USERNAME/fastqc:0.11.5 fastqc /example/SP1.fq
 Started analysis of SP1.fq
 Analysis complete for SP1.fq
 + '[' '!' -z 1 ']'
@@ -104,7 +103,10 @@ Analysis complete for SP1.fq
 Success
 ```
 
-A successful test will result in `SP1_fastqc.html` and `SP1_fastqc.zip` files generated in the `~/fastqc/example/` folder. (Make sure not to confuse old output files with new output files - check the time stamps or remove the output and run again).
+A successful test will result in `SP1_fastqc.html` and `SP1_fastqc.zip` files
+generated in the `~/fastqc/example/` folder. (Make sure not to confuse old output
+files with new output files - check the time stamps or remove the output and run
+again).
 
 <br> 
 #### Write the wrapper script
@@ -119,13 +121,13 @@ CONTAINER_IMAGE="index.docker.io/USERNAME/fastqc:0.11.5"
 . _util/container_exec.sh
 
 COMMAND="fastqc"
-PARAMS="-o ${output_dir} ${fastq}"
+PARAMS="${fastq}"
 
 container_exec ${CONTAINER_IMAGE} ${COMMAND} ${PARAMS}
 ```
 
 (Replace `USERNAME` with your Docker ID).
-Notice now we do not define `output_dir` or `fastq`, as those will be defined
+Notice now we do not define `fastq`, as it will be defined
 by Agave. We also do not mount our example data into the Docker container,
 as that will be taken care of in production.
 
