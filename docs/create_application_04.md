@@ -4,8 +4,8 @@ title: Create Custom Applications
 tagline: Add your app to the SD2E tenant
 ---
 
-The final step required before you can run the app is to edit the `json` file
-descriptions so your app is compatible with Agave.
+At this stage, most of the files are ready to go. Your directory structure
+should be similar to:
 ```
 fastqc/
 ├── Dockerfile                 # done !
@@ -27,6 +27,8 @@ fastqc/
     ├── README.md              # done !
     └── fastqc_v0.11.5.zip     # done ! (optional)
 ```
+The final step required before you can run the app is to edit the `json` file
+descriptions so your app is compatible with Agave.
 
 <br>
 #### Write the app description
