@@ -196,9 +196,9 @@ And execute the script with bash to push your image to the cloud:
 
 Next, we will continue to edit files in the app bundle to call this new image.
 
+---
 Proceed to [Build wrapper and test scripts](create_application_03.md)
 
 Go back to [Create Custom Applications](create_application.md)
 
----
 Return to the [API Documentation Overview](../index.md)

@@ -112,11 +112,10 @@ fastqc/
 From this point forward, we will refer to this location on our local machine
 as `~/fastqc/`. Next, we will edit the files necessary to containerize the app.
 
+
+---
 Proceed to [Containerize your app](create_application_02.md)
 
 Go back to [Create Custom Applications](create_application.md)
 
-
-
----
 Return to the [API Documentation Overview](../index.md)

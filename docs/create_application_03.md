@@ -129,9 +129,9 @@ Notice now we do not define `output_dir` or `fastq`, as those will be defined
 by Agave. We also do not mount our example data into the Docker container,
 as that will be taken care of in production.
 
-Proceed to [Add your app to the sd2e tenant](create_application_04.md)
+---
+Proceed to [Add your app to the SD2E tenant](create_application_04.md)
 
 Go back to [Create Custom Applications](create_application.md)
 
----
 Return to the [API Documentation Overview](../index.md)
