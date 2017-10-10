@@ -18,7 +18,7 @@ would like to contribute, create a pull request to the repository here:
 Make your best effort to follow the same conventions (directory structure, naming
 scheme, etc.) as the other apps in that repo. Also, carefully consider the size
 of your app bundle. Github does not deal well with large source files and example
-data, so if you can keep your app bundle to 1MB or less, that would be ideal.
+data, so if you can keep your app bundle to a few MB, that would be ideal.
 
 
 <br> 
