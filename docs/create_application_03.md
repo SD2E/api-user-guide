@@ -27,50 +27,28 @@ fastqc/
     └── fastqc_v0.11.5.zip     # done ! (optional)
 ```
 
-<br> 
-#### Write the wrapper script
-
-The file loacted at `~fastqc/fastqc-0.11.6/runner-template.sh` contains runtime
-instructions for your app. The current file is the template left over from the
-hello-container example. Edit it as follows:
-```
-CONTAINER_IMAGE="index.docker.io/USERNAME/fastqc:0.11.5"
-
-. _util/container_exec.sh
-
-COMMAND='fastqc'
-PARAMS='-o ${output_dir} ${fastq}'
-
-container_exec ${CONTAINER_IMAGE} ${COMMAND} ${PARAMS}
-```
-
-Replace `USERNAME` with your Docker ID (or project space where the image is
-located). In the above file, the `container_exec.sh` script is sourced, `fastqc`
-is the command to execute, and the parameters passed to the command are `-o
-${output_dir} ${fastq}`. Notice they are still variables. This will be resolved
-later by Agave. The final command in the script is the container run command.
-It is written in this way to be flexible and compatible to both Docker and
-Singularity.
-
 <br>
-#### Write the tester script
+#### Write the test script
 
-The tester script is your opportunity to develop a robust app using best
-practices. Edit it as follows:
+The test script allows you to test your app with real data as it will be run in
+production. We use shell variables liberally in the script to facilitate
+integration with Agave later. Edit the test script located at
+`~/fastqc/fastqc-0.11.5/tester.sh` as follows:
 ```
 #!/usr/bin/env bash
 
-output_dir='${PWD}/../example'
-fastq='${PWD}/../example/SP1.fq'
+output_dir="/example"
+fastq="/example/SP1.fq"
+example_mount="-v ${PWD}/../example:/example:rw"
 
 CONTAINER_IMAGE="index.docker.io/USERNAME/fastqc:0.11.5"
 
 . _util/container_exec.sh
 
-COMMAND='fastqc'
-PARAMS='-o ${output_dir} ${fastq}'
+COMMAND="fastqc"
+PARAMS="-o ${output_dir} ${fastq}"
 
-DEBUG=1 container_exec ${CONTAINER_IMAGE} ${COMMAND} ${PARAMS}
+DEBUG=1 container_exec ${example_mount} ${CONTAINER_IMAGE} ${COMMAND} ${PARAMS}
 
 ######################
 #  FUNCTIONAL TESTS  #
@@ -97,17 +75,63 @@ run_tests && \
     cleanup
 ```
 
-The same lines in `runner_template.sh` are included in the top of this file. Also
-included are a bash shebang, the variables `output_dir` and `fastq` are set to 
-the location of the example data, and template functional tests are at the bottom.
-You can test your workflow by executing:
+The `output_dir` and `fastq` variables are the two runtime variables used in this
+app (provided by the user through Agave). They are defined here for testing
+purposes, but will be removed for the purposes of the wrapper script. Similarly,
+the `example_mount` directory is also mounted to the container only for purposes
+of testing, but will not be mounted in production.
+
+For the `CONTAINER_IMAGE` variable,
+replace `USERNAME` with your Docker ID (or project space where the image is
+located). Also in the above file, the `container_exec.sh` script is sourced, `fastqc`
+is the command to execute, and the parameters passed to the command are an
+output directory path (`-o ${output_dir}`) and an input fastq file (`${fastq}`).
+The final command in the script (begging with `DEBUG=1`) is the main container
+run command. It is written in this way to be flexible and compatible to both
+Docker and Singularity.
+
+At the bottom of the script are a few template functions that you can develop
+to validate that the test ran correctly. Here,
+they are blank, and it is up to the user to write appropriate tests if desired.
+Test your workflow by executing:
 ```
 % bash tester.sh
++ docker run --rm --user=0:20 -v /Users/username/fastqc/fastqc-0.11.5:/ home:rw -w /home -v /Users/username/fastqc/fastqc-0.11.5/../example:/ex ample:rw index.docker.io/USERNAME/fastqc:0.11.5 fastqc -o /example /example/SP1.fq
+Started analysis of SP1.fq
+Analysis complete for SP1.fq
++ '[' '!' -z 1 ']'
++ set +x
+Success
 ```
 
-Make sure the variable definitions and your current working directory resolve
-correctly.
+A successful test will result in `SP1_fastqc.html` and `SP1_fastqc.zip` files generated in the `~/fastqc/example/` folder. (Make sure not to confuse old output files with new output files - check the time stamps or remove the output and run again).
 
+<br> 
+#### Write the wrapper script
+
+The file loacted at `~/fastqc/fastqc-0.11.6/runner-template.sh` contains runtime
+instructions for your app in Agave. Essentially, it is a subset of your test 
+script. Copy the test script to `runner_template.sh` and retain only the following
+lines:
+```
+CONTAINER_IMAGE="index.docker.io/USERNAME/fastqc:0.11.5"
+
+. _util/container_exec.sh
+
+COMMAND="fastqc"
+PARAMS="-o ${output_dir} ${fastq}"
+
+container_exec ${CONTAINER_IMAGE} ${COMMAND} ${PARAMS}
+```
+
+(Replace `USERNAME` with your Docker ID).
+Notice now we do not define `output_dir` or `fastq`, as those will be defined
+by Agave. We also do not mount our example data into the Docker container,
+as that will be taken care of in production.
+
+Proceed to [Add your app to the sd2e tenant](create_application_04.md)
+
+Go back to [Create Custom Applications](create_application.md)
 
 ---
 Return to the [API Documentation Overview](../index.md)
