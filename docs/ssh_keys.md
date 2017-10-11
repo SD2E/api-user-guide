@@ -19,7 +19,8 @@ skip this section of the documents until you need to
 #### Prerequisites
 
 For this example, we will demonstrate how to generate keys for an Atmosphere VM
-instance on [Jetstream](https://jetstream-cloud.org). We need:
+instance on [Jetstream](https://jetstream-cloud.org), although these instructions
+are generic and can be applied to most systems. We need:
 
 * Hostname / IP address for target system
 * User account and login credentials for target system

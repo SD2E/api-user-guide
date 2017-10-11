@@ -25,7 +25,7 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;**2 Using the SD2E API**
 
-&nbsp;&nbsp;&nbsp;&nbsp;2.1 [HPC and STORAGE Systems Basics](docs/systems_basics.md)
+&nbsp;&nbsp;&nbsp;&nbsp;2.1 [Storage and Execution System Basics](docs/systems_basics.md)
 
 &nbsp;&nbsp;&nbsp;&nbsp;2.2 [Data Management: File Operations](docs/data_management.md)
 
@@ -47,9 +47,10 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;**4 Advanced SD2E Features**
 
-&nbsp;&nbsp;&nbsp;&nbsp;4.1 Docker / Singularity Containers (*coming soon*)
+&nbsp;&nbsp;&nbsp;&nbsp;4.1 Integration with Jupyter (*coming soon*)
 
-&nbsp;&nbsp;&nbsp;&nbsp;4.2 Integration with Jupyter (*coming soon*)
+&nbsp;&nbsp;&nbsp;&nbsp;4.2 Actor Based Containers (*coming soon*)
+
 
 
 

@@ -1,32 +1,33 @@
 ---
 layout: page
-title: HPC and STORAGE Systems Basics
+title: Storage and Execution System Basics
 tagline:
 ---
 
 An Agave *system* is a server or collection of servers associated with a single
-hostname. They may be public or private, and they may either be STORAGE systems
-(used for storing files) or HPC systems (used for running jobs).
+hostname. They may be public or private, and they may either be **storage** systems
+(used for storing files) or **execution** systems (used for running jobs).
 
-In SD2E, we provide all users with private HPC and STORAGE systems attached to
+In SD2E, we provide all users with private storage and execution systems attached to
 TACC resources. If you would like to create your own systems attached to different
-resources, skip ahead to [Creating Systems](create_systems.md).
+resources, skip ahead to [Create Private Systems](create_systems.md).
 
 
 <br>
 #### Find your systems
 
-Systems where you are able to store and access data (called STORAGE systems) can
-be found using the `systems-list` command:
+Systems where you are able to store and access data (called storage systems) can
+be found using the `systems-list` command with a `-S` flag:
 ```
 % systems-list -S
+data-sd2e-projects-q0-sharing
 data-sd2e-projects-q0-ingest
 data-sd2e-projects-q0-examples
-data-tacc-work-username
 data-sd2e-community
 data-sd2e-app-assets
+data-tacc-work-username
 ```
-Here is a quick summary of the default STORAGE systems:
+Here is a quick summary of the default storage systems:
 
 * `data-tacc-work-username`: Your personal directory on the TACC `$WORK` filesystem. You have +rw and sharing access. This will show up in the portal as **My Data**.
 
@@ -37,14 +38,29 @@ Here is a quick summary of the default STORAGE systems:
 * `data-sd2e-app-assets`: This system is private to SD2E staff and read-only. It will not show up in the portal.
 
 <br>
-Systems where you are able to execute commands and run jobs (called HPC systems)
+Systems where you are able to execute commands and run jobs (called execution systems)
 can be found with the following command: 
 ```
 % systems-list -E
+hpc-tacc-maverick-username
 hpc-tacc-maverick
 cli-tacc-maverick
+cli-tacc-wrangler
 ```
-*---More on HPC systems coming soon---*
+Execution systems come in two different flavors: HPC (high performance computing)
+and CLI (command line interface). HPC-type execution systems are used for submitting
+a job to a queueing system on a cluster. CLI-type executiong systems are used for
+running jobs on the command line or on a dedicated, on-demand resource (e.g. AWS
+or [Jetstream](https://jetstream-cloud.org)).
+
+Here is a quick summary of the default execution systems:
+
+* `hpc-tacc-maverick-username`: Your personal execution system for the TACC [Maverick](https://portal.tacc.utexas.edu/user-guides/maverick) supercomputer. Jobs run against this execution system will be submitted to the Maverick job queue on your behalf.
+
+* `*-tacc-maverick`: Public HPC and CLI execution systems for the TACC [Maverick](https://portal.tacc.utexas.edu/user-guides/maverick) supercomputer. Most SD2E community members have `USER` access and will be able to run public applications set up to run on this system.
+
+* `cli-tacc-wrangler`: Public CLI execution system for the TACC [Wrangler](https://portal.tacc.utexas.edu/user-guides/wrangler) supercomputer. Most SD2E community members have `USER` access and will be able to run public applications set up to run on this system.
+
 
 *Tip: use "`systems-list -h`" to see more usage options*
 
@@ -52,14 +68,15 @@ cli-tacc-maverick
 #### Verbose system information
 
 To see additional system information, including hostname, root folder locations,
-and availability, use the verbose flag with a system ID:
+and availability, use the verbose flag with a system ID. For example, find out more
+information about your personal storage system as follows:
 ```
 % systems-list -v data-tacc-work-username
 {
-  "owner": "vaughn",
+  "owner": "sd2eadm",
   "_links": {
     "owner": {
-      "href": "https://api.sd2e.org/profiles/v2/vaughn"
+      "href": "https://api.sd2e.org/profiles/v2/sd2eadm"
     },
     "metadata": {
       "href": "https://api.sd2e.org/meta/v2/data/?q=%7B%22associationIds%22%3A%223474211147285074407-242ac11a-0001-006%22%7D"
@@ -86,38 +103,163 @@ and availability, use the verbose flag with a system ID:
     },
     "publicAppsDir": null,
     "host": "data.tacc.utexas.edu",
-    "rootDir": "/work/projects/SD2E-Community/prod/home/username",
+    "rootDir": "/work/03439/username",
     "homeDir": "/"
   },
   "type": "STORAGE",
   "uuid": "3474211147285074407-242ac11a-0001-006",
-  "revision": 2,
+  "revision": 3,
   "site": "tacc.utexas.edu",
   "default": true,
   "public": false,
   "globalDefault": false,
-  "name": "Your TACC Work Directory",
+  "name": "TACC $WORK Directory for username",
   "id": "data-tacc-work-username",
-  "lastModified": "2017-09-20T14:15:40.000-05:00",
+  "lastModified": "2017-10-03T12:30:26.000-05:00",
   "status": "UP"
 }
 ```
-*---Update to WORK filesystem when available---*
 
-As described above, this STORAGE system is a gateway to your private storage
+As described above, this storage system is a gateway to your private storage
 space on the TACC `$WORK` filesystem. The `rootDir` is the virtual root path
 for operations performed on this system.
+
+Similar information can be seen when querying execution systems:
+```
+% systems-list -v hpc-tacc-maverick-username
+{
+  "maxSystemJobs": 50,
+  "_links": {
+    "owner": {
+      "href": "https://api.sd2e.org/profiles/v2/sd2eadm"
+    },
+    "metadata": {
+      "href": "https://api.sd2e.org/meta/v2/data/?q=%7B%22associationIds%22%3A%22766742035567677927-242ac11a-0001-006%22%7D"
+    },
+    "credentials": {
+      "href": "https://api.sd2e.org/systems/v2/hpc-tacc-maverick-username/credentials"
+    },
+    "roles": {
+      "href": "https://api.sd2e.org/systems/v2/hpc-tacc-maverick-username/roles"
+    },
+    "self": {
+      "href": "https://api.sd2e.org/systems/v2/hpc-tacc-maverick-username"
+    },
+    "history": {
+      "href": "https://api.sd2e.org/systems/v2/hpc-tacc-maverick-username/history"
+    }
+  },
+  "executionType": "HPC",
+  "available": true,
+  "description": "Interactive visualization and data analytics system. Features NVIDIA K40 and P100 GPGPU. Linux container support via Singularity.",
+  "storage": {
+    "proxy": null,
+    "protocol": "SFTP",
+    "mirror": false,
+    "port": 22,
+    "auth": {
+      "type": "SSHKEYS"
+    },
+    "host": "data.tacc.utexas.edu",
+    "rootDir": "/work/03439/username",
+    "homeDir": "/jobs"
+  },
+  "type": "EXECUTION",
+  "login": {
+    "proxy": null,
+    "protocol": "SSH",
+    "port": 22,
+    "auth": {
+      "type": "SSHKEYS"
+    },
+    "host": "gateway.maverick.tacc.utexas.edu"
+  },
+  "uuid": "766742035567677927-242ac11a-0001-006",
+  "startupScript": "~/.bashrc",
+  "scheduler": "SLURM",
+  "default": false,
+  "public": false,
+  "maxSystemJobsPerUser": 12,
+  "id": "hpc-tacc-maverick-username",
+  "workDir": "",
+  "owner": "sd2eadm",
+  "revision": 1,
+  "site": "tacc.utexas.edu",
+  "environment": null,
+  "queues": [
+    {
+      "maxJobs": 20,
+      "maxMemoryPerNode": 256,
+      "default": false,
+      "maxRequestedTime": "00:15:00",
+      "name": "small",
+      "description": null,
+      "maxNodes": 1,
+      "maxProcessorsPerNode": 20,
+      "mappedName": "vis",
+      "maxUserJobs": 10,
+      "customDirectives": "-A SD2E-Community"
+    },
+    {
+      "maxJobs": 20,
+      "maxMemoryPerNode": 256,
+      "default": true,
+      "maxRequestedTime": "04:00:00",
+      "name": "normal",
+      "description": null,
+      "maxNodes": 32,
+      "maxProcessorsPerNode": 640,
+      "mappedName": "vis",
+      "maxUserJobs": 2,
+      "customDirectives": "-A SD2E-Community"
+    },
+    {
+      "maxJobs": 4,
+      "maxMemoryPerNode": 256,
+      "default": false,
+      "maxRequestedTime": "12:00:00",
+      "name": "long",
+      "description": null,
+      "maxNodes": 32,
+      "maxProcessorsPerNode": 640,
+      "mappedName": "gpu",
+      "maxUserJobs": 1,
+      "customDirectives": "-A SD2E-Community"
+    },
+    {
+      "maxJobs": 8,
+      "maxMemoryPerNode": 256,
+      "default": false,
+      "maxRequestedTime": "12:00:00",
+      "name": "gpgpu-k80",
+      "description": null,
+      "maxNodes": 32,
+      "maxProcessorsPerNode": 640,
+      "mappedName": "gpu",
+      "maxUserJobs": 2,
+      "customDirectives": "-A SD2E-Community"
+    }
+  ],
+  "globalDefault": false,
+  "name": "TACC Maverick HPC (username)",
+  "lastModified": "2017-10-03T12:19:41.000-05:00",
+  "status": "UP",
+  "scratchDir": ""
+```
+
+In addition to standard host and path information, execution systems also contain
+information about queue types and availability.
 
 <br>
 #### Set a default system
 
 You may find that most of the [file operations](data_management.md) you perform
-are on your private TACC STORAGE system - `data-tacc-work-username`. To avoid
+are on your private TACC storage system - `data-tacc-work-username`. To avoid
 typing the full name of the system with every file command, you may set it as the
 default with:
 ```
 % systems-setdefault data-tacc-work-username
-Successfully set data-tacc-work-username as the default STORAGE system for username
+Successfully set data-tacc-work-username as the default storage system for username
 ```
 
 
