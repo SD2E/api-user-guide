@@ -110,7 +110,7 @@ a record of where the source came from. For example:
 <br>
 #### Write the Dockerfile
 
-Take the steps required to install your package and translate them into a
+Next, translate the steps required to install your software package into a
 resonable `Dockerfile`. The `Dockerfile` should be located at the root directory,
 `~/fastqc/Dockerfile`:
 ```
@@ -162,7 +162,7 @@ to our root to hold example data:
 
 Next, run the FastQC pipeline on the example data:
 ```
-% docker run -v $PWD:/data fastqc:0.11.5 fastqc -o /data /data/SP1.fq
+% docker run -v $PWD:/data fastqc:0.11.5 fastqc /data/SP1.fq
 ```
 
 If successful, you should find the output files `SP1_fastqc.html` and `SP1_fastqc.zip`

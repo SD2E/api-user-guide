@@ -74,7 +74,7 @@ run_tests && \
     cleanup
 ```
 
-The `fastq` variables is the only runtime variable used in this
+The `fastq` variable is the only runtime variable used in this
 app (provided by the user through Agave). It is explicitly defined here for testing
 purposes, but will be removed for the purposes of the wrapper script. Similarly,
 the `example_mount` directory is also mounted to the container only for purposes

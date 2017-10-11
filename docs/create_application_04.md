@@ -36,7 +36,7 @@ descriptions so your app is compatible with Agave.
 The Agave app description is contained in `app.json`. All `app.json` files
 consist of four essential sections: metadata, input, parameters, and output.
 ```
-{	"application_metadata":"value",
+{	"metadata":"value",
 	"inputs":[],
 	"parameters":[],
 	"outputs":[]
@@ -139,12 +139,12 @@ not uploaded that data yet, but we will do it before we submit the job.)
 <br>
 #### Inspect and run the deploy script
 
-The delploy script does two things. It stages your app assets (including the 
+The deploy script does two things. It stages your app assets (including the 
 wrapper script) on the storage system specified in the app description, and it
 creates a new app in the SD2E tenant using the Agave `apps-addupdate` command.
 ```
 % cd ~/fastqc/
-% bash deploy.sh fastqc-0.11.5/ fastqc-0.11.5/app.json
+% bash deploy.sh fastqc-0.11.5/
 ...
 Successfully added app fastqc-username-0.11.5
 ...
