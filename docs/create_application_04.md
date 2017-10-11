@@ -4,8 +4,8 @@ title: Create Custom Applications
 tagline: Add your app to the SD2E tenant
 ---
 
-At this stage, most of the files are ready to go. Your directory structure
-should be similar to:
+At this stage, most of the files that form the Agave app bundle are ready to go.
+Your directory structure should be similar to:
 ```
 fastqc/
 ├── Dockerfile                 # done !
@@ -49,8 +49,8 @@ more. There is only one input required: the name (and location) of the fastq fil
 to be processed. We do not need to specify any parameters or outputs at this time.
 
 A full list of all metdata, inputs, parameters, and outputs conventions can be
-found in the [Agave documentation](http://developer.agaveapi.co/#apps). However,
-rather than try to write the `app.json` from scratch, we will modify the template
+found in the [Agave documentation](http://developer.agaveapi.co/#apps).
+Rather than try to write the `app.json` from scratch, we will modify the template
 to contain the following:
 ```
 {
@@ -93,7 +93,13 @@ to contain the following:
 }
 ```
 
-Some of the more useful fields are shown above. We use our private execution
+The app `name` given is `fastqc-username` (where `username` is your TACC username).
+This is a common convention to distinguish your private apps from the publicly 
+available apps. It is also a good idea to name an app which is in development
+according to this convention. Later, it can be [cloned and published](share_application.md)
+to a new public app without the `-username` tag.
+
+Some of the other useful fields are shown above. We use our private execution
 system (`hpc-tacc-maverick-username`) to run this app. The `deploymentPath` and
 `deploymentSystem` fields show where the app assets (including the wrapper 
 script) reside. The `templatePath` and `testPath` fields should match the names
@@ -104,11 +110,9 @@ The `inputs` section only contains one input - the `fastq` file to be processed.
 Note the `id` of the input paramter, `fastq`, matches the environment variable
 in our `runner_template.sh` script. 
 
-The JSON format can be tricky, so it is a good idea to validate your JSON using
+The JSON format is unforgiving of typos, so it is a good idea to validate your JSON using
 an [online tool](https://jsonlint.com/) to make sure there are no missing 
-characters.
-
-The YAML file (`app.yml`) is probably not strictly necessary. It is a clone of
+characters. The YAML file (`app.yml`) is probably not strictly necessary. It is a clone of
 the `app.json` file, just in a different format. You may perform the
 conversion using [online tools](https://www.json2yaml.com/).
 
@@ -129,11 +133,18 @@ Instructions for running an instance of an app (a job), are located in the
 }
 ```
 
-Give the job a unique name, the `appId` is a concatenation of the app `name` and
-`version` from the `app.json` file above, the `archive` flag can be `true` or
-`false`, and the only input required is a `fastq` file. In this example, we point
+Give the job a unique `name`, the `appId` is a concatenation of the app `name` and
+`version` from the `app.json` file above,
+and the only input required is a `fastq` file. In this example, we point
 the `fastq` variable to our sample data on our private storage system. (We have 
 not uploaded that data yet, but we will do it before we submit the job.)
+
+The `archive` flag can be set to `true` or `false`. If `false`, the job is staged
+and run in temporary space on the execution system. Job outputs will only be 
+downloadable for a limited time (on the order of weeks). If set to `true`, the
+new files produced from the job (e.g. outputs, logs) will be copied to a 
+system and path of your choosing. Specify the system and path with the `archiveSystem`
+and `archivePath` json objects. More on job submission [here](http://developer.agaveapi.co/#job-submission).
 
 
 <br>
@@ -157,9 +168,9 @@ your app has been successfully deployed to the SD2E tenant.
 <br>
 #### Run a test job
 
-Now that your app and assets are staged, the final step is to run a test job.
-Create the appropriate directories (if they do not exist already) and upload
-the example data:
+Now that your app and assets are staged, the final steps are to stage your sample
+data and to run a test job. Create the appropriate directories (if they do not
+exist already) and upload the example data:
 ```
 % files-list -S data-tacc-work-username /
 ...   # contents of your TACC work root directory
@@ -170,8 +181,9 @@ Uploading example/SP1.fq...
 ######################################################################## 100.0%
 ```
 
-The `job.json` prepared earlier refers to that path and filename already, so go
-ahead and run the test with the `jobs-submit` command:
+Make sure the Agave storage system, the path name, and the file name match those
+specified in the `job.json` file. When ready, run the test with the `jobs-submit`
+command:
 ```
 % cd ~/fastqc/fastqc-0.11.5/
 % jobs-submit -F job.json
@@ -199,8 +211,12 @@ Job completed. Skipping archiving at user request.
 3305694762687393305-242ac11b-0001-007 FINISHED
 ```
 
-Once the job has reached `FINISHED` status, download and inspect the ouput:
+*Tip: '`jobs-history -W JOBID`' will follow the progress in real time, similar to '`tail -f`'.*
+
+Once the job has reached `FINISHED` status, you can list the contents of the job
+directory, or download and inspect the ouput on your local machine:
 ```
+% jobs-output-list 3305694762687393305-242ac11b-0001-007
 % jobs-output-get -r 3305694762687393305-242ac11b-0001-007
 ```
 

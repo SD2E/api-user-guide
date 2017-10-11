@@ -4,13 +4,15 @@ title: Create Custom Applications
 tagline: Clone an example app
 ---
 
-Here, we will take the first steps in developing our own app. It is assumed that
-you already have an app in mind (i.e. a program that you would like to run), and 
-you have an idea of how you would like to run it (i.e. what are the inputs and 
-outputs, what flags might be used, etc.).
+Here, we will take the first steps in developing our own Agave app. It is assumed
+that you already have an executable in mind (i.e. a program that you would like
+to run), and you have an idea of how you would like to run it (i.e. what are the
+inputs and outputs, what flags might be used, etc.).
 
 <br>
 #### Develop an app by example
+
+*Prerequisite: `git` should be installed on your local machine*
 
 On the [SD2E github pages](https://github.com/SD2E/reactors-etl),
 you will find examples of several apps that have already
@@ -25,8 +27,7 @@ Receiving objects: 100% (602/602), 168.23 MiB | 853.00 KiB/s, done.
 Resolving deltas: 100% (253/253), done.
 Checking out files: 100% (159/159), done.
 
-% cd reactors-etl/
-% cd reactors/
+% cd reactors-etl/reactors/
 % ls
 fcs-tasbe/              hello-container/        lcms/                   sailfish/
 fcs-tasbe-tacc/         kallisto/               msf/
@@ -63,15 +64,13 @@ necessary for building the container reproducibly, and having them will facilita
 future app updates. The `deploy.sh` script is the final script of the app building
 process which helps the user add their app to the Agave SD2E tenant.
 
-One of the subdirectories is named `hello-container-0.1.0/`. This directory contains
-both the `runner-template.sh`, which is a script directing how the app should be
-run upon invocation, and `tester.sh`, which is a clone of `runner-template.sh`
-for testing locally. Also included are template files `app.json` and `job.json`
-which contain Agave-based descriptions of the app itself, and how the app should
-be run. The version number in the path name (`-0.1.0`) should be the version of
-software that you are installing. If you make updates to this app in the future,
-Agave will automatically increment an internal counter, e.g. `-0.1.0u1`, `-0.1.0u2`,
-etc. 
+The major subdirectory is named `hello-container-0.1.0/` - a concatenation of the
+name of the app and the version of the executable. This directory contains both 
+`runner-template.sh`, which is a script directing how the app should be run upon
+invocation, and `tester.sh`, which is a clone of `runner-template.sh` for testing
+locally. Also included are template files `app.json` and `job.json` which contai
+Agave-based descriptions of the app itself, and how the app should be run on an
+Agave system.
 
 Finally, the other subdirectory is a `src/` directory. It contains the source
 code and runtime assets (reference files, libraries, etc.) required for your app.
@@ -110,11 +109,12 @@ fastqc/
 ```
 
 From this point forward, we will refer to this location on our local machine
-as `~/fastqc/`. Next, we will edit the files necessary to containerize the app.
+as `~/fastqc/`. Next, we will edit the files necessary to containerize the FastQC
+executable.
 
 
 ---
-Proceed to [Containerize your app](create_application_02.md)
+Proceed to [Containerize your executable](create_application_02.md)
 
 Go back to [Create Custom Applications](create_application.md)
 

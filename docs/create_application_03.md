@@ -44,7 +44,7 @@ CONTAINER_IMAGE="index.docker.io/USERNAME/fastqc:0.11.5"
 
 . _util/container_exec.sh
 
-COMMAND="fastqc"
+COMMAND="perl /FastQC/fastqc"
 PARAMS="${fastq}"
 
 DEBUG=1 container_exec ${example_mount} ${CONTAINER_IMAGE} ${COMMAND} ${PARAMS}
@@ -82,12 +82,11 @@ of testing, but will not be mounted in production.
 
 For the `CONTAINER_IMAGE` variable,
 replace `USERNAME` with your Docker ID (or project space where the image is
-located). Also in the above file, the `container_exec.sh` script is sourced, `fastqc`
-is the command to execute, and the parameter passed to the command is
-the input fastq file (`${fastq}`).
-The final command in the script (begging with `DEBUG=1`) is the main container
-run command. It is written in this way to be flexible and compatible to both
-Docker and Singularity.
+located). Also in the above file, the `container_exec.sh` script is sourced,
+'`perl /FastQC/fastqc`' is the command to execute, and the parameter passed to the
+command is the input fastq file (`${fastq}`). The final command in the script
+(begging with `DEBUG=1`) is the main container run command. It is written in this
+way to be flexible and compatible to both Docker and Singularity.
 
 At the bottom of the script are a few template functions that you can develop
 to validate that the test ran correctly. Here,
@@ -120,16 +119,15 @@ CONTAINER_IMAGE="index.docker.io/USERNAME/fastqc:0.11.5"
 
 . _util/container_exec.sh
 
-COMMAND="fastqc"
+COMMAND="perl /FastQC/fastqc"
 PARAMS="${fastq}"
 
 container_exec ${CONTAINER_IMAGE} ${COMMAND} ${PARAMS}
 ```
 
-(Replace `USERNAME` with your Docker ID).
-Notice now we do not define `fastq`, as it will be defined
-by Agave. We also do not mount our example data into the Docker container,
-as that will be taken care of in production.
+(Replace `USERNAME` with your Docker ID). Notice now we do not define `fastq`,
+as it will be defined later by Agave. We also do not mount our example data into
+the Docker container, as that will be taken care of in production.
 
 ---
 Proceed to [Add your app to the SD2E tenant](create_application_04.md)
