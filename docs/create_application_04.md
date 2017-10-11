@@ -204,8 +204,8 @@ Once the job has reached `FINISHED` status, download and inspect the ouput:
 % jobs-output-get -r 3305694762687393305-242ac11b-0001-007
 ```
 
-A successful run will return, among other files, the expected `SP1_output.html`
-and `SP1_output.zip` files.
+A successful run will return, among other files, the expected `SP1_fastqc.html`
+and `SP1_fastqc.zip` files.
 
 ---
 Proceed to [Next steps](create_application_05.md)
