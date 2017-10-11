@@ -20,6 +20,8 @@ After submitting the Account Request form, you should receive a confirmation ema
 
 Once your email is confirmed, your account request will then be reviewed.  Account approval should occur within 1 business day.  You should receive an email when your account is approved.
 
+After your account is approved, please log back into the TACC Portal <https://portal.tacc.utexas.edu> and complete Multi-Factor Authentication (MFA). For MFA, follow the TACC Auth App instructions, and we suggest substituting in the Google Authenticator App instead. MFA instructions are available here:  <https://portal.tacc.utexas.edu/tutorials/multifactor-authentication>.
+
 <br>
 #### Request SD2E access
 
