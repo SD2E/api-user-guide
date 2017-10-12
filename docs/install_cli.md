@@ -7,7 +7,7 @@ tagline:
 The primary method for interacting with the SD2E platform is the 
 [Agave command line interface (CLI)](https://agaveapi.co/).
 The CLI is a collection of ~150 shell scripts for managing
-authorization, files, systems, jobs, and more. 
+authorization, files, systems, applications, jobs, and more. 
 
 There are three methods to install the CLI:
 1. Run an installer script to install in ~/sd2e-cloud-cli/bin/
