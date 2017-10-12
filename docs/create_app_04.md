@@ -96,7 +96,7 @@ to contain the following:
 The app `name` given is `fastqc-username` (where `username` is your TACC username).
 This is a common convention to distinguish your private apps from the publicly 
 available apps. It is also a good idea to name an app which is in development
-according to this convention. Later, it can be [cloned and published](share_application.md)
+according to this convention. Later, it can be [cloned and published](share_app.md)
 to a new public app without the `-username` tag.
 
 Some of the other useful fields are shown above. We use our private execution
@@ -224,8 +224,8 @@ A successful run will return, among other files, the expected `SP1_fastqc.html`
 and `SP1_fastqc.zip` files.
 
 ---
-Proceed to [Next steps](create_application_05.md)
+Proceed to [Next steps](create_app_05.md)
 
-Go back to [Create Custom Applications](create_application.md)
+Go back to [Create Custom Applications](create_app.md)
 
 Return to the [API Documentation Overview](../index.md)
