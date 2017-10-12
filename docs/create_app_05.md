@@ -31,6 +31,6 @@ the SD2E Docker hub, send an e-mail to `support-at-sd2e-dot-org`.
 <https://hub.docker.com/u/sd2e/>
 
 ---
-Go back to [Create Custom Applications](create_application.md)
+Go back to [Create Custom Applications](create_app.md)
 
 Return to the [API Documentation Overview](../index.md)

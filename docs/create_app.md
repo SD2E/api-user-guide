@@ -28,11 +28,11 @@ And, example app bundles can be viewed on the
 The best way to demonstrate the creation of a custom app is by example. The 
 following sub-pages will go through the process:
 
-1. [Clone an example app](create_application_01.md)
-2. [Containerize your executable](create_application_02.md)
-3. [Build wrapper and test scripts](create_application_03.md)
-4. [Add your app to the SD2E tenant](create_application_04.md)
-5. [Next steps](create_application_05.md)
+1. [Clone an example app](create_app_01.md)
+2. [Containerize your executable](create_app_02.md)
+3. [Build wrapper and test scripts](create_app_03.md)
+4. [Add your app to the SD2E tenant](create_app_04.md)
+5. [Next steps](create_app_05.md)
 
 
 ---

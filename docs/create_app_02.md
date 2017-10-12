@@ -17,7 +17,7 @@ that [Singularity images](http://singularity.lbl.gov/docs-hpc) are also amenable
 to this infrastructure.
 
 We will continue with the example of FastQC from the
-[previous page](create_application_01.md).
+[previous page](create_app_01.md).
 
 <br>
 #### Choose a source image
@@ -203,8 +203,8 @@ And execute the script with `bash` to push your image to the cloud:
 Next, we will continue to edit files in the app bundle to call this new image.
 
 ---
-Proceed to [Build wrapper and test scripts](create_application_03.md)
+Proceed to [Build wrapper and test scripts](create_app_03.md)
 
-Go back to [Create Custom Applications](create_application.md)
+Go back to [Create Custom Applications](create_app.md)
 
 Return to the [API Documentation Overview](../index.md)

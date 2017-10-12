@@ -13,7 +13,7 @@ an app with your colleagues, follow the steps below.
 #### Update permissions on an app
 
 Assuming you have the private app `fastqc-username-0.11.5` (developed
-[elsewhere in this user guide](create_application.md)), you can check who has 
+[elsewhere in this user guide](create_app.md)), you can check who has 
 permission to access the app with the following command:
 ```
 % apps-pems-list fastqc-username-0.11.5
@@ -53,7 +53,7 @@ collaborator the correct permissions on that system.
 *Tip: The app execution system is listed in the app.json file, or can be found
 by issuing '`apps-list -v app-name | grep executionSystem`'.*
 
-[Elsewhere in this user guide](create_application.md) we deployed our private
+[Elsewhere in this user guide](create_app.md) we deployed our private
 app on our private exection system, `hpc-tacc-maverick-username`. Use the 
 `systems-roles-list` command to see who can access it:
 ```
