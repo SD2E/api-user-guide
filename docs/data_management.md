@@ -119,7 +119,7 @@ the STORAGE system. The syntax for these operations is very similar to the
 % files-mkdir -S data-tacc-work-username -N sd2e-data/subfolder sd2e-data/f
 
 # Move a file into that subfolder
-$ files-move -S data-tacc-work-username -D sd2e-data/subfolder/ sd2e-data/renamed.txt
+$ files-move -S data-tacc-work-username -D sd2e-data/subfolder/renamed.txt sd2e-data/renamed.txt
 
 # Delete a file or a folder
 % files-delete -S data-tacc-work-username sd2e-data/subfolder/renamed.txt
