@@ -38,7 +38,7 @@ expires at: Thu Sep 21 16:40:51 CDT 2017
 When your token expires, there is no need to generate a new token. It can be
 refreshed by using the command:
 ```
-% auth-tokens-refresh
+% auth-tokens-refresh -S
 
 Token for sd2e:wallen successfully refreshed and cached for 14400 seconds
 d6f5da11v69ad337f9gaf1926487f9ec4
