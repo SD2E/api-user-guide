@@ -53,6 +53,8 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;&nbsp;&nbsp;4.3 Actor Based Containers (*coming soon*)
 
+&nbsp;&nbsp;&nbsp;&nbsp;4.4 [Singularity GPGPU Containers](docs/singularity_gpu_01.md)
+
 
 
 
