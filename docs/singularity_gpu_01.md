@@ -11,7 +11,7 @@ Utilizing GPGPUs on the Maverick supercomputer through containerized environment
 You can register your app to ANY system at TACC, but Maverick may not always be the best choice if you don't always need GPUs.
 
 | System     | Cores/Node | Pros                                      | Limitations                                |
-|:-----------|:----------:|:------------------------------------------|:-------------------------------------------|
+|:-----------|:-----------|:------------------------------------------|:-------------------------------------------|
 | Stampede   | 16         | Thousands of nodes, Xeon Phi accelerators | Retiring ~ Dec2017                         |
 | Stampede 2 Phase1 | 68         | Thousands of nodes, KNL processors | Slow for serial code                       |
 | Stampede 2 Phase2 | 48         | Thousands of nodes, Skylake processors | Coming Soon, High Demand               |
