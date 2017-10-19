@@ -10,16 +10,17 @@ Utilizing GPGPUs on the Maverick supercomputer through containerized environment
 
 You can register your app to ANY system at TACC, but Maverick may not always be the best choice if you don't always need GPUs.
 
-| System | Cores/Node | Pros | Cons |
-|--|--|--|--|
-| Stampede | 16 | Thousands of nodes, Xeon Phi accelerators | Depreciated software stack and high demand |
-| Stampede 2 | 68 | Thousands of nodes, KNL processors | Slow for serial code |
-| Lonestar 5 | 24 | Compute, GPUs, Large-mem | UT only, slow external network |
-| Wrangler | 24 | SSD Filesystem, Hosted Databases, Hadoop, HDFS | Low node-count |
-| Jetstream | 24 | Long running instances, root access | limited storage |
-| Maverick | 20 | GPUs, high memory | Depreciated software stack |
-| Chameleon | Variable | GPUs, bare metal VM, software defined networking | Difficult to configure | 
-| Catapult | 16 | FPGAs | Windows :D |
+| System     | Cores/Node | Pros                                      | Limitations                                |
+|:-----------|:----------:|:------------------------------------------|:-------------------------------------------|
+| Stampede   | 16         | Thousands of nodes, Xeon Phi accelerators | Retiring ~ Dec2017                         |
+| Stampede 2 Phase1 | 68         | Thousands of nodes, KNL processors | Slow for serial code                       |
+| Stampede 2 Phase2 | 48         | Thousands of nodes, Skylake processors | Coming Soon, High Demand               |
+| Lonestar 5 | 24         | Compute, GPUs, Large-mem | UT only, slow external network                              |
+| Wrangler   | 24         | SSD Filesystem for fast I/O, Hosted Databases, Hadoop, HDFS | Low node-count           |
+| Jetstream  | 24         | Long running instances, root access       | Limited storage                            |
+| Maverick   | 20         | GPUs, high memory nodes                   | Depreciated software stack                 |
+| Chameleon  | Variable   | GPUs, bare metal VM, software defined networking | Difficult to configure              | 
+| Catapult   | 16         | FPGAs                                     | Windows-only                               |
 
 You can learn about all choices at the [TACC Systems Overview](https://www.tacc.utexas.edu/systems/overview). Detailed specifications can be found in the *User Guide* of each system.
 
