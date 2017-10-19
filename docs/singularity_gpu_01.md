@@ -55,7 +55,7 @@ Create a Singularity container from scratch.
    * (sudo) [manually install software](http://singularity.lbl.gov/archive/docs/v2-3/docs-changing-containers)
 3. Done
 
-http://singularity.lbl.gov/archive/docs/v2-3/bootstrap-image
+<http://singularity.lbl.gov/archive/docs/v2-3/bootstrap-image>
 
 ### Docker Import
 
@@ -64,7 +64,7 @@ Utilize your knowledge of Docker to create Singularity images.
 1. Pull docker image
 2. Run docker image
 
-http://singularity.lbl.gov/archive/docs/v2-3/docs-docker
+<http://singularity.lbl.gov/archive/docs/v2-3/docs-docker>
 
 ### Running the container
 
@@ -114,6 +114,4 @@ You may be thinking "what about overlayfs??". The Linux kernel on Maverick does 
 
 ## Build your APP
 
-You can then use these methods in your next Agave app.
-
-https://sd2e.github.io/api-user-guide/docs/create_app.html
+You can then use these methods in your [next Agave app](create_app.md).
