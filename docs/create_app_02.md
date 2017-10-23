@@ -12,9 +12,7 @@ on hubs such as
 
 This tutorial is a quick and dirty summary of how to build your own Docker image
 as if there is not one available for your executable. This is not meant to replace
-the full [Docker documentation](https://docs.docker.com/develop/). Please note
-that [Singularity images](http://singularity.lbl.gov/docs-hpc) are also amenable
-to this infrastructure.
+the full [Docker documentation](https://docs.docker.com/develop/).
 
 We will continue with the example of FastQC from the
 [previous page](create_app_01.md).
@@ -150,8 +148,7 @@ Once built, test the new image with an example command:
 ```
 
 *Note: Calling the complete path to executables is sometimes safer than relying
-on PATH environment variables, especially when translating between Docker and
-Singularity*
+on PATH environment variables*
 
 If you see the FastQC help text, the installation likely was successful.
 At this time, it might be prudent to set up a test with real data as well. The

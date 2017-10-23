@@ -13,7 +13,7 @@ looking for is not available? Using the Agave CLI, you can create your own.
 
 The essential components you need to create your own app are:
 
-1. A Docker or Singularity image containing the executable and all runtime dependencies
+1. A Docker image containing the executable and all runtime dependencies
 2. A wrapper script (generally written in bash) that runs the executable
 3. A test script (also written in bash) for testing the executable outside of the Agave environment
 

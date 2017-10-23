@@ -85,8 +85,7 @@ replace `USERNAME` with your Docker ID (or project space where the image is
 located). Also in the above file, the `container_exec.sh` script is sourced,
 '`perl /FastQC/fastqc`' is the command to execute, and the parameter passed to the
 command is the input fastq file (`${fastq}`). The final command in the script
-(begging with `DEBUG=1`) is the main container run command. It is written in this
-way to be flexible and compatible to both Docker and Singularity.
+(begging with `DEBUG=1`) is the main container run command. 
 
 At the bottom of the script are a few template functions that you can develop
 to validate that the test ran correctly. Here,
