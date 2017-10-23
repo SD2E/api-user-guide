@@ -20,12 +20,11 @@ Systems where you are able to store and access data (called storage systems) can
 be found using the `systems-list` command with a `-S` flag:
 ```
 % systems-list -S
-data-sd2e-projects-q0-sharing
-data-sd2e-projects-q0-ingest
-data-sd2e-projects-q0-examples
-data-sd2e-community
 data-sd2e-app-assets
+data-sd2e-projects-users
+data-sd2e-projects-etldev
 data-tacc-work-username
+data-sd2e-community
 ```
 Here is a quick summary of the default storage systems:
 
@@ -44,6 +43,7 @@ can be found with the following command:
 % systems-list -E
 hpc-tacc-maverick-username
 hpc-tacc-maverick
+hpc-tacc-wrangler
 cli-tacc-maverick
 cli-tacc-wrangler
 ```
@@ -57,9 +57,10 @@ Here is a quick summary of the default execution systems:
 
 * `hpc-tacc-maverick-username`: Your personal execution system for the TACC [Maverick](https://portal.tacc.utexas.edu/user-guides/maverick) supercomputer. Jobs run against this execution system will be submitted to the Maverick job queue on your behalf.
 
-* `*-tacc-maverick`: Public HPC and CLI execution systems for the TACC [Maverick](https://portal.tacc.utexas.edu/user-guides/maverick) supercomputer. Most SD2E community members have `USER` access and will be able to run public applications set up to run on this system.
+* `*-tacc-maverick`: Public HPC and CLI execution systems for the TACC [Maverick](https://portal.tacc.utexas.edu/user-guides/maverick) supercomputer. Most SD2E community members have `USER` access and will be able to run public applications set up to run on these systems.
 
-* `cli-tacc-wrangler`: Public CLI execution system for the TACC [Wrangler](https://portal.tacc.utexas.edu/user-guides/wrangler) supercomputer. Most SD2E community members have `USER` access and will be able to run public applications set up to run on this system.
+* `*-tacc-wrangler`: Public HPC and CLI execution system for the TACC [Wrangler](https://portal.tacc.utexas.edu/user-guides/wrangler) supercomputer. Most SD2E community members have `USER` access and will be able to run public applications set up to run on these systems.
+
 
 
 *Tip: use "`systems-list -h`" to see more usage options*
@@ -103,7 +104,7 @@ information about your personal storage system as follows:
     },
     "publicAppsDir": null,
     "host": "data.tacc.utexas.edu",
-    "rootDir": "/work/03439/username",
+    "rootDir": "/work/01234/username",
     "homeDir": "/"
   },
   "type": "STORAGE",
@@ -161,7 +162,7 @@ Similar information can be seen when querying execution systems:
       "type": "SSHKEYS"
     },
     "host": "data.tacc.utexas.edu",
-    "rootDir": "/work/03439/username",
+    "rootDir": "/work/01234/username",
     "homeDir": "/jobs"
   },
   "type": "EXECUTION",
