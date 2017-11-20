@@ -32,7 +32,7 @@ following sub-pages will go through the process:
 2. [Containerize your executable](create_app_02.md)
 3. [Build wrapper and test scripts](create_app_03.md)
 4. [Add your app to the SD2E tenant](create_app_04.md)
-5. [Next steps](create_app_05.md)
+5. [Best practices and next steps](create_app_05.md)
 
 
 ---

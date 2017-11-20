@@ -224,7 +224,7 @@ A successful run will return, among other files, the expected `SP1_fastqc.html`
 and `SP1_fastqc.zip` files.
 
 ---
-Proceed to [Next steps](create_app_05.md)
+Proceed to [Best practices and next steps](create_app_05.md)
 
 Go back to [Create Custom Applications](create_app.md)
 
