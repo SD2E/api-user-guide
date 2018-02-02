@@ -199,7 +199,7 @@ complete.
 
 Reminder: at any time, you can issue an Agave command with the `-h` flag to
 find more information on the function and usage of the command. Extensive Agave
-documentation can be found [here](http://developer.agaveapi.co/).
+documentation can be found [here](https://tacc.github.io/developer.tacc.cloud/).
 
 
 ---
