@@ -17,7 +17,7 @@ your Agave configuration file):
 % auth-tokens-create -S
 API password:   # enter TACC password
 
-Token for sd2e:wallen successfully refreshed and cached for 14400 seconds
+Token for sd2e:username successfully refreshed and cached for 14400 seconds
 5836ffcf4ta4a3638df7fde7adf6159ab
 ```
 
@@ -27,7 +27,7 @@ can check the status of your token by performing:
 % auth-check
 
 tenant: sd2e
-username: wallen
+username: username
 time left: 14217 seconds
 expires at: Thu Sep 21 16:40:51 CDT 2017
 ```
@@ -40,7 +40,7 @@ refreshed by using the command:
 ```
 % auth-tokens-refresh -S
 
-Token for sd2e:wallen successfully refreshed and cached for 14400 seconds
+Token for sd2e:username successfully refreshed and cached for 14400 seconds
 d6f5da11v69ad337f9gaf1926487f9ec4
 ```
 

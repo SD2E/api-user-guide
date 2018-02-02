@@ -32,8 +32,8 @@ Finally, verify that the CLI has been installed by issuing the following:
 ```
 % sd2e info
 
-DARPA SD2E version 1.0.1
-TACC Cloud API tenant: sd2e
+DARPA SD2E version: 1.0.6
+TACC Cloud API tenant: sd2e.org
 TACC Cloud API versions:
         Science APIs: 2.2.5
         Reactors API: dev
@@ -65,11 +65,12 @@ Finally, verify that the CLI has been installed by issuing the following:
 ```
 % sd2e info
 
-DARPA SD2E version 1.0.1
-TACC Cloud API tenant: sd2e
+DARPA SD2E version: 1.0.6
+TACC Cloud API tenant: sd2e.org
 TACC Cloud API versions:
-	Science APIs: 2.2.5
-	Reactors API: dev
+        Science APIs: 2.2.5
+        Reactors API: dev
+        TACC Accounting API: v1
 ```
 
 <br>
@@ -90,8 +91,9 @@ Then from within Docker, verify that the CLI is available:
 DARPA SD2E version 1.0.1
 TACC Cloud API tenant: sd2e
 TACC Cloud API versions:
-	Science APIs: 2.2.5
-	Reactors API: dev
+        Science APIs: 2.2.5
+        Reactors API: dev
+        TACC Accounting API: v1
 ```
 
 <br>
@@ -100,17 +102,17 @@ TACC Cloud API versions:
 <table style="width:100%" border="1px" cellpadding="5">
   <tr>
     <th align="left">environment variable</th>
-    <th>options</th>
+    <th align="left">options</th>
     <th align="left">description</th>
   </tr>
   <tr>
     <td>AGAVE_JSON_PARSER</td>
-    <td align="center">json_mirror, jq, json, python, native</td>
+    <td>json_mirror, jq, json, python, native</td>
     <td>Set this to your favorite json parser (if installed)</td>
   <tr>
   </tr>
     <td>AGAVE_DISABLE_AUTO_REFRESH</td>
-    <td align="center">1, 0</td>
+    <td>1, 0</td>
     <td>Set this to `1` to disable auto refresh of the OAuth2 token</td>
   </tr>
 </table>
