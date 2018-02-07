@@ -15,11 +15,11 @@ To run an instance of this application with our data (called a "job"), we first
 must assemble a json description of the job we would like to run. The simplest
 way to do this is to use the Agave `jobs-template` command:
 ```
-% jobs-template kallisto-0.43.1u1
+% jobs-template kallisto-0.43.1u3
 
 {
   "name": "kallisto test-1506708374",
-  "appId": "kallisto-0.43.1u1",
+  "appId": "kallisto-0.43.1u31",
   "archive": true,
   "inputs": {
     "transcripts": "read1.fastq",
@@ -34,7 +34,7 @@ way to do this is to use the Agave `jobs-template` command:
 By default, this is output to the screen. To store it in a file instead,
 perform:
 ```
-% jobs-template kallisto-0.43.1u1 > kallisto_job.json
+% jobs-template kallisto-0.43.1u3 > kallisto_job.json
 ```
 We see very basic information including an identifying name for our job, the 
 identity of the app, and whether it should be archived. Also, we see only the 
@@ -58,9 +58,9 @@ kallisto job:
 ```
 
 The prefix for an Agave URI is always `agave://` followed by the STORAGE system,
-followed by the complete path relative to your root directory, and finally the name
-of the file. Modify your `kallisto_job.json` file to point to either this public 
-data, or your data that you have staged on your private STORAGE system.
+followed by the complete path relative to the system root directory, and finally
+the name of the file. Modify your `kallisto_job.json` file to point to either this
+public data, or your data that you have staged on your private STORAGE system.
 
 <br>
 #### Add parameters to job template
@@ -106,27 +106,22 @@ Once the job status is `FINISHED`, you can list what output is available:
 
 ```
 % jobs-output-list 833421020533756391-242ac11b-0001-007
-.agave.archive
 .agave.log
-_util
-app.yml
-kallisto-job.json
-kallisto-tester.sh
-kallisto.json
-kallisto.sh.template
-kallisto_test-833421020533756391-242ac11b-0001-007.err
-kallisto_test-833421020533756391-242ac11b-0001-007.out
-kallisto_test.ipcexe
+kallisto-test-1518033119-833421020533756391-242ac11b-0001-007.err
+kallisto-test-1518033119-833421020533756391-242ac11b-0001-007.out
 output
 reads_1.fastq.gz
 reads_2.fastq.gz
-test
 transcript.idx
 transcripts.fasta.gz
 ```
 
-The important output for this job is all located in the `output` directory.
-Download just the `output` directory using the following command:
+Because this job had attribute `"archive":true` in the job template, the output
+files were archived in your `tacc-work` space under a folder named after your
+username. A copy of the output also remains in the jobs API space for easy access
+and, if desired, chaining into other jobs. The important output for this job is
+all located in the `output` directory.  Download just the `output` directory
+using the following command:
 ```
 % jobs-output-get -r 833421020533756391-242ac11b-0001-007 /output/
 Downloading output/abundance.h5 ...
