@@ -14,11 +14,27 @@ HPC system.
 The `apps-list` command can be used to list all applications you have access to:
 ```
 % apps-list
-kallisto-0.43.1u1
-msf-0.1.0u2
-lcms-0.1.0u1
-fcs-tasbe-0.1.0u1
-sailfish-0.10.1u1
+fastqc-0.11.5u2
+fcs-etl-0.3.3u3
+fcs-tasbe-0.2.0u6
+hello-agave-cli-0.1.0u1
+hello-agave-hpc-0.1.0u1
+hello-container-0.1.0u1
+kallisto-0.43.1u3
+lcms-maverick-0.1.0u2
+lcms-maverick-0.1.0u3
+lcms-pyquant-0.1.0u1
+lcms-wrangler-0.1.0u2
+lcms-wrangler-0.1.0u3
+msf-0.1.0u3
+msf-maverick-0.1.0u3
+msf-wrangler-0.1.0u3
+rnaseq-0.1.1u1
+rnaseq-0.1.2u1
+rnaseq-broad-0.1.1u1
+sailfish-0.10.1u4
+sortmerna-0.0.1u1
+ta3-api-0.0.2u1
 ```
 
 This can be modified with `-P` or `-Q` flags to show only public or private apps,
@@ -33,7 +49,7 @@ in the SD2E catalog:
 ```
 % apps-search -h    # show syntax for searching
 % apps-search public=true name.like=*kallisto*
-kallisto-0.43.1u1
+kallisto-0.43.1u3
 ```
 
 In this case, the `apps-search` command finds one match and returns the newest
@@ -52,7 +68,7 @@ description.
 
 To see the app description, perform:
 ```
-% apps-list -v kallisto-0.43.1u1
+% apps-list -v kallisto-0.43.1u3
 ```
 
 The output of this command is a `json` description of the app including metadata,
@@ -64,45 +80,46 @@ inputs, parameters, and outputs.
 The `metadata` section of the app json file includes information about the app
 availability, runtime resources required, description, and much more:
 ```json
- "available": true,
- "checkpointable": false,
- "defaultMaxRunTime": "00:30:00",
- "defaultMemoryPerNode": 256,
- "defaultNodeCount": 1,
- "defaultProcessorsPerNode": 20,
- "defaultQueue": "normal",
- "deploymentPath": "/public-apps/kallisto-0.43.1u1.zip",
- "deploymentSystem": "data-sd2e-app-assets",
- "executionSystem": "hpc-tacc-maverick",
- "executionType": "HPC",
- "helpURI": "https://pachterlab.github.io/kallisto/",
- "icon": null,
- "id": "kallisto-0.43.1u1",
- "isPublic": true,
- "label": "Kallisto",
- "lastModified": "2017-09-29T11:38:43.000-05:00",
- "longDescription": "A program for quantifying abundances of transcripts from RNA-Seq data",
- "modules": [
-     "load tacc-singularity"
- ],
- "name": "kallisto",
- "ontology": [
-     "http://edamontology.org/operation_3800",
-     "http://edamontology.org/topic_3053"
- ],
- "owner": "sd2eadm",
- "parallelism": "SERIAL",
- "revision": 1,
- "shortDescription": "Quantifies RNA-Seq transcripts",
- "tags": [
-     "RNA-Seq",
-     "Quantification",
-     "Abundance"
- ],
- "templatePath": "kallisto.sh.template",
- "testPath": "kallisto-tester.sh",
- "uuid": "6351565997271150105-242ac115-0001-005",
- "version": "0.43.1"
+  "available": true,
+  "checkpointable": false,
+  "defaultMaxRunTime": "00:30:00",
+  "defaultMemoryPerNode": 256,
+  "defaultNodeCount": 1,
+  "defaultProcessorsPerNode": 20,
+  "defaultQueue": "normal",
+  "deploymentPath": "/.public-apps/kallisto-0.43.1u3.zip",
+  "deploymentSystem": "data-sd2e-projects-users",
+  "executionSystem": "hpc-tacc-maverick",
+  "executionType": "HPC",
+  "helpURI": "https://pachterlab.github.io/kallisto/",
+  "icon": null,
+  "id": "kallisto-0.43.1u3",
+  "isPublic": true,
+  "label": "Kallisto",
+  "lastModified": "2017-10-10T14:12:09.000-05:00",
+  "longDescription": "A program for quantifying abundances of transcripts from RNA-Seq data",
+  "modules": [
+      "load tacc-singularity"
+  ],
+  "name": "kallisto",
+  "ontology": [
+      "http://edamontology.org/operation_3800",
+      "http://edamontology.org/topic_3053"
+  ],
+  "owner": "sd2eadm",
+  "parallelism": "SERIAL",
+  "revision": 3,
+  "shortDescription": "Quantifies RNA-Seq transcripts",
+  "tags": [
+      "RNA-Seq",
+      "Quantification",
+      "Abundance",
+      "docker://index.docker.io/sd2e/kallisto:0.43.1--hdf51.8.17_0"
+  ],
+  "templatePath": "runner-template.sh",
+  "testPath": "tester.sh",
+  "uuid": "1631007230668172825-242ac115-0001-005",
+  "version": "0.43.1"
 ```
 
 Some key information in this section includes the identity of the HPC system
@@ -115,92 +132,86 @@ quantify abundances of transcripts from RNA-Seq data.
 
 The `inputs` section describe what input data are required for running this app:
 ```json
- "inputs": [
-     {
-         "details": {
-             "argument": null,
-             "description": "FASTA file of transcript sequences",
-             "label": "transcripts",
-             "repeatArgument": false,
-             "showArgument": false
-         },
-         "id": "transcripts",
-         "semantics": {
-             "fileTypes": [
-                 "raw-0"
-             ],
-             "maxCardinality": 1,
-             "minCardinality": 1,
-             "ontology": [
-                 "http://edamontology.org/format_1929"
-             ]
-         },
-         "value": {
-             "default": "",
-             "enquote": false,
-             "order": 0,
-             "required": true,
-             "validator": null,
-             "visible": true
-         }
-     },
-     {
-         "details": {
-             "argument": null,
-             "description": null,
-             "label": "First reads file of a FASTQ pair (or single)",
-             "repeatArgument": false,
-             "showArgument": false
-         },
-         "id": "fastq1",
-         "semantics": {
-             "fileTypes": [
-                 "raw-0"
-             ],
-             "maxCardinality": 1,
-             "minCardinality": 1,
-             "ontology": [
-                 "http://edamontology.org/format_1930"
-             ]
-         },
-         "value": {
-             "default": "read1.fastq",
-             "enquote": false,
-             "order": 0,
-             "required": true,
-             "validator": null,
-             "visible": true
-         }
-     },
-     {
-         "details": {
-             "argument": null,
-             "description": null,
-             "label": "Second reads file of a FASTQ pair",
-             "repeatArgument": false,
-             "showArgument": false
-         },
-         "id": "fastq2",
-         "semantics": {
-             "fileTypes": [
-                 "raw-0"
-             ],
-             "maxCardinality": 1,
-             "minCardinality": 1,
-             "ontology": [
-                 "hhttp://edamontology.org/format_1930"
-             ]
-         },
-         "value": {
-             "default": "",
-             "enquote": false,
-             "order": 0,
-             "required": true,
-             "validator": null,
-             "visible": true
-         }
-     }
- ],
+  "inputs": [
+      {
+          "details": {
+              "argument": null,
+              "description": "FASTA file of transcript sequences",
+              "label": "transcripts",
+              "repeatArgument": false,
+              "showArgument": false
+          },
+          "id": "transcripts",
+          "semantics": {
+              "fileTypes": [],
+              "maxCardinality": 1,
+              "minCardinality": 1,
+              "ontology": [
+                  "http://edamontology.org/format_1929"
+              ]
+          },
+          "value": {
+              "default": "",
+              "enquote": false,
+              "order": 0,
+              "required": true,
+              "validator": null,
+              "visible": true
+          }
+      },
+      {
+          "details": {
+              "argument": null,
+              "description": null,
+              "label": "First reads file of a FASTQ pair (or single)",
+              "repeatArgument": false,
+              "showArgument": false
+          },
+          "id": "fastq1",
+          "semantics": {
+              "fileTypes": [],
+              "maxCardinality": 1,
+              "minCardinality": 1,
+              "ontology": [
+                  "http://edamontology.org/format_1930"
+              ]
+          },
+          "value": {
+              "default": "read1.fastq",
+              "enquote": false,
+              "order": 0,
+              "required": true,
+              "validator": null,
+              "visible": true
+          }
+      },
+      {
+          "details": {
+              "argument": null,
+              "description": null,
+              "label": "Second reads file of a FASTQ pair",
+              "repeatArgument": false,
+              "showArgument": false
+          },
+          "id": "fastq2",
+          "semantics": {
+              "fileTypes": [],
+              "maxCardinality": 1,
+              "minCardinality": 1,
+              "ontology": [
+                  "hhttp://edamontology.org/format_1930"
+              ]
+          },
+          "value": {
+              "default": "",
+              "enquote": false,
+              "order": 0,
+              "required": true,
+              "validator": null,
+              "visible": true
+          }
+      }
+  ],
 ```
 
 It appears this app is expecting three files as inputs, identified by the `id`
@@ -212,86 +223,86 @@ all three are required to run this app.
 
 Next, inspect the `parameters` section of the app json file:
 ```json
- "parameters": [
-     {
-         "details": {
-             "argument": "-b ",
-             "description": "Number of bootstrap samples (default: 0)",
-             "label": "bootstrap",
-             "repeatArgument": false,
-             "showArgument": true
-         },
-         "id": "bootstrap",
-         "semantics": {
-             "maxCardinality": 1,
-             "minCardinality": 0,
-             "ontology": [
-                 "xs:integer"
-             ]
-         },
-         "value": {
-             "default": 0,
-             "enquote": false,
-             "order": 0,
-             "required": false,
-             "type": "number",
-             "validator": "",
-             "visible": true
-         }
-     },
-     {
-         "details": {
-             "argument": "--seed=",
-             "description": "Seed for the bootstrap sampling (default: 42)",
-             "label": "seed",
-             "repeatArgument": false,
-             "showArgument": true
-         },
-         "id": "seed",
-         "semantics": {
-             "maxCardinality": 1,
-             "minCardinality": 0,
-             "ontology": [
-                 "xs:integer"
-             ]
-         },
-         "value": {
-             "default": 42,
-             "enquote": false,
-             "order": 0,
-             "required": false,
-             "type": "number",
-             "validator": "",
-             "visible": true
-         }
-     },
-     {
-         "details": {
-             "argument": "-o ",
-             "description": "Output directory name",
-             "label": "output",
-             "repeatArgument": false,
-             "showArgument": true
-         },
-         "id": "output",
-         "semantics": {
-             "maxCardinality": 1,
-             "minCardinality": 1,
-             "ontology": [
-                 "xs:string"
-             ]
-         },
-         "value": {
-             "default": "output",
-             "enquote": false,
-             "order": 1,
-             "required": true,
-             "type": "string",
-             "validator": "",
-             "visible": true
-         }
-     }
- ],
+  "parameters": [
+      {
+          "details": {
+              "argument": "-b ",
+              "description": "Number of bootstrap samples (default: 0)",
+              "label": "bootstrap",
+              "repeatArgument": false,
+              "showArgument": true
+          },
+          "id": "bootstrap",
+          "semantics": {
+              "maxCardinality": 1,
+              "minCardinality": 0,
+              "ontology": [
+                  "xs:integer"
+              ]
+          },
+          "value": {
+              "default": 0,
+              "enquote": false,
+              "order": 0,
+              "required": false,
+              "type": "number",
+              "validator": "",
+              "visible": true
+          }
+      },
+      {
+          "details": {
+              "argument": "--seed=",
+              "description": "Seed for the bootstrap sampling (default: 42)",
+              "label": "seed",
+              "repeatArgument": false,
+              "showArgument": true
+          },
+          "id": "seed",
+          "semantics": {
+              "maxCardinality": 1,
+              "minCardinality": 0,
+              "ontology": [
+                  "xs:integer"
+              ]
+          },
+          "value": {
+              "default": 42,
+              "enquote": false,
+              "order": 0,
+              "required": false,
+              "type": "number",
+              "validator": "",
+              "visible": true
+          }
+      },
+      {
+          "details": {
+              "argument": "-o ",
+              "description": "Output directory name",
+              "label": "output",
+              "repeatArgument": false,
+              "showArgument": true
+          },
+          "id": "output",
+          "semantics": {
+              "maxCardinality": 1,
+              "minCardinality": 1,
+              "ontology": [
+                  "xs:string"
+              ]
+          },
+          "value": {
+              "default": "output",
+              "enquote": false,
+              "order": 1,
+              "required": true,
+              "type": "string",
+              "validator": "",
+              "visible": true
+          }
+      }
+  ],
 ```
 
 It is also expecting three parameters, identified by the `id` field: `bootstrap`,
@@ -303,49 +314,50 @@ purpose and acceptable values for each parameter are provided in the description
 
 The last remaining section is the `outputs` section:  
 ```json
- "outputs": [
-     {
-         "details": {
-             "description": null,
-             "label": "Abundances tabular file"
-         },
-         "id": "abundance",
-         "semantics": {
-             "fileTypes": [],
-             "maxCardinality": 1,
-             "minCardinality": 1,
-             "ontology": [
-                 "http://edamontology.org/format_3475"
-             ]
-         },
-         "value": {
-             "default": "output/abundance.tsv",
-             "order": 0,
-             "validator": null
-         }
-     },
-     {
-         "details": {
-             "description": null,
-             "label": "Metadata about the Kallisto run"
-         },
-         "id": "run_info",
-         "semantics": {
-             "fileTypes": [],
-             "maxCardinality": 1,
-             "minCardinality": 1,
-             "ontology": [
-                 "http://edamontology.org/format_3464"
-             ]
-         },
-         "value": {
-             "default": "output/run_info.json",
-             "order": 0,
-             "validator": null
-         }
-     }
- ],
+  "outputs": [
+      {
+          "details": {
+              "description": null,
+              "label": "Abundances tabular file"
+          },
+          "id": "abundance",
+          "semantics": {
+              "fileTypes": [],
+              "maxCardinality": 1,
+              "minCardinality": 1,
+              "ontology": [
+                  "http://edamontology.org/format_3475"
+              ]
+          },
+          "value": {
+              "default": "output/abundance.tsv",
+              "order": 0,
+              "validator": null
+          }
+      },
+      {
+          "details": {
+              "description": null,
+              "label": "Metadata about the Kallisto run"
+          },
+          "id": "run_info",
+          "semantics": {
+              "fileTypes": [],
+              "maxCardinality": 1,
+              "minCardinality": 1,
+              "ontology": [
+                  "http://edamontology.org/format_3464"
+              ]
+          },
+          "value": {
+              "default": "output/run_info.json",
+              "order": 0,
+              "validator": null
+          }
+      }
+  ],
 ```
+
 Here, we see two outputs are created when running this app: `abundance` and
 `run_info`. Neither must be specified by the user, as they are output by default.
 However, this is an important clue (along with the inputs, parameters, and app

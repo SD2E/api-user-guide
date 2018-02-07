@@ -147,7 +147,7 @@ File item copied from https://api.sd2e.org/files/v2/media/system/data-tacc-work-
 
 Reminder: at any time, you can issue an Agave command with the `-h` flag to
 find more information on the function and usage of the command. Extensive Agave
-documentation can be found [here](http://developer.agaveapi.co/).
+documentation can be found [here](https://tacc.github.io/developer.tacc.cloud/).
 
 ---
 Return to the [API Documentation Overview](../index.md)

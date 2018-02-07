@@ -20,11 +20,11 @@ Systems where you are able to store and access data (called storage systems) can
 be found using the `systems-list` command with a `-S` flag:
 ```
 % systems-list -S
-data-sd2e-app-assets
+data-sd2e-community
+data-tacc-work-username
 data-sd2e-projects-users
 data-sd2e-projects-etldev
-data-tacc-work-username
-data-sd2e-community
+data-sd2e-app-assets
 ```
 Here is a quick summary of the default storage systems:
 
@@ -44,6 +44,7 @@ can be found with the following command:
 hpc-tacc-maverick-username
 hpc-tacc-maverick
 hpc-tacc-wrangler
+hpc-tacc-jetstream
 cli-tacc-maverick
 cli-tacc-wrangler
 ```
@@ -61,9 +62,11 @@ Here is a quick summary of the default execution systems:
 
 * `*-tacc-wrangler`: Public HPC and CLI execution system for the TACC [Wrangler](https://portal.tacc.utexas.edu/user-guides/wrangler) supercomputer. Most SD2E community members have `USER` access and will be able to run public applications set up to run on these systems.
 
+* `hpc-tacc-jetstream`: Public CLI execution system for the TACC [Jetstream](https://portal.tacc.utexas.edu/user-guides/jetstream) cloud resource. Most SD2E community members have `USER` access and will be able to run public applications set up to run on these systems.
 
 
-*Tip: use "`systems-list -h`" to see more usage options*
+
+*Tip: use '`systems-list -h`' to see more usage options*
 
 <br>
 #### Verbose system information
