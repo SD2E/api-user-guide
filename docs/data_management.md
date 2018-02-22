@@ -112,11 +112,14 @@ Using the Agave CLI, files and folders can also be renamed, moved, and deleted r
 the STORAGE system. The syntax for these operations is very similar to the 
 `files-copy` command syntax. Here are some common examples:
 ```
-# Rename a file or folder in place
+# Rename a file in place
 % files-rename -S data-tacc-work-username -N sd2e-data/renamed.txt sd2e-data/my_file.txt
 
+# Rename a folder in place
+% files-move -S data-tacc-work-username -D sd2e-data/renamedfolder sd2e-data/subfolder
+
 # Make a subfolder in the sd2e-data/ folder
-% files-mkdir -S data-tacc-work-username -N sd2e-data/subfolder sd2e-data/f
+% files-mkdir -S data-tacc-work-username -N sd2e-data/subfolder sd2e-data/
 
 # Move a file into that subfolder
 $ files-move -S data-tacc-work-username -D sd2e-data/subfolder/renamed.txt sd2e-data/renamed.txt
