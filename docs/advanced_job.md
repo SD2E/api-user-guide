@@ -1,0 +1,222 @@
+---
+layout: page
+title: Advanced Job Control and Workflows
+tagline:
+---
+
+In this section, we will cover a few common ways users can leverage the Agave
+command line interface to customize the way jobs are run, to chain multiple
+apps together, and to perform simple parameter sweeps. This page contains the
+following sections:
+
+1. [Customize job parameters](#customize-job-parameters)
+2. [Chain multiple apps](#chain-multiple-apps)
+3. [Parameter sweeps](#parameter-sweeps)
+
+<br>
+#### Customize job parameters
+
+Typically, apps in the SD2E tenant are registered to specific execution systems,
+specific queues, and specific numbers of nodes / processors. To change the max
+run time, total number of nodes, queues, and more, simply specify the desired
+fields in the job template json file. As an example, consider the FastQC app,
+used in fastq quality controls. By verbosely querying the app, we find the
+following metada:
+
+```
+% apps-list -v fastqc-0.11.5u2
+{                                                          
+  "id": "fastqc-0.11.5u2",                        
+  "name": "fastqc",
+  "icon": null,                                   
+  "uuid": "1628589407406911000-242ac115-0001-005",
+  "parallelism": "SERIAL",
+  "defaultProcessorsPerNode": 1,
+  "defaultMemoryPerNode": 1,                      
+  "defaultNodeCount": 1,
+  "defaultMaxRunTime": "04:00:00",
+  "defaultQueue": "normal",
+... etc
+}
+```
+
+By default, this job will run for a maximum of 4 hours, which should be
+sufficient for FastQC. Let us imagine, however, we would like to increase it to
+5 hours. Create a template for this job using the `-A` flag with
+`jobs-template`:
+
+```
+% jobs-template -A fastqc-0.11.5u2 > fastqc.json
+```
+
+Modify the file to include the following:
+```
+{
+  "name":"fastqc test-1519357972",
+  "appId": "fastqc-0.11.5u2",
+  "maxRunTime": "05:00:00",
+  "archive": false,
+  "inputs": {
+    "input": "agave://data-sd2e-community/sample/sailfish/test/read1.fastq"
+  },
+  "parameters": {
+  }
+}
+```
+
+And finally, submit the job:
+```
+% jobs-submit -F fastqc.json
+Successfully submitted job 1207252913474965991-242ac113-0001-007
+```
+
+In this example, the `maxRunTime` metadata field (along with all other editable
+fields) was automatically placed into the job json file by using the `-A` flag
+with the `jobs-template` command. The execution system, queue, number of nodes,
+number of cores, and other parameters can be modified in a similar way.
+
+
+<br>
+#### Chain multiple apps
+
+A useful feature of Agave and the SD2E tenant is the ability to use the output
+of one job as the input of a second job. It saves time and avoids unnecessary
+file transfers to keep the output/input in Agave "Job API space. For example,
+perhaps you want to filter out ribosomal RNA from your raw sequence data using
+`SortMeRNA`, then perform a quality control check on the remaining RNA seq data
+using `FastQC`. For the first step, run `SortMeRNA` on sample data:
+
+```
+# Create a job template file for step 1:
+% jobs-template sortmerna-0.0.1u1 > step01_sortmerna.json
+
+# Modify the file to use the following public inputs:
+{
+  "name": "sortmerna test-1519531952",
+  "appId": "sortmerna-0.0.1u1",
+  "archive": false,
+  "inputs": {
+    "read1": "agave://data-sd2e-community/sample/kallisto/test/reads_1.fastq.gz",
+    "read2": "agave://data-sd2e-community/sample/kallisto/test/reads_2.fastq.gz"
+  },
+  "parameter": {
+  }
+}
+
+# Submit the job:
+% job-submit -F step01_sortmerna.json
+Successfully submitted job 6837303784049414631-242ac113-0001-007
+
+# List job output (without downloading):
+% jobs-output-list 6837303784049414631-242ac113-0001-007
+```
+
+With the `archive` flag set to `false`, the runtime and output data all remain
+in job API space until manually downloaded by the user, or until it expires and
+is lost. (Note: If `archive` is set to `true`, the job output will be downloaded
+automatically to: `~/tacc-work/username/archive/jobs/job-<job-number>`).
+
+If all goes well in the first job, the output sequence file will be visible by
+the `jobs-output-list` command. Ths file is called `filtered.fastq.gz`. To pipe that
+file into the next step of the pipeline (quality control check with `FastQC`),
+simply point directly to that file via the Agave jobs API:
+
+```
+# Create a job template file for step 2:
+% jobs-template fastqc-0.11.5u2 > step02_fastqc.json
+
+# Modify the file as follows:
+{
+  "name": "fastqc test-1519534017",
+  "appId": "fastqc-0.11.5u2",
+  "archive": true,
+  "inputs": {
+    "fastq": "https://api.sd2e.org/jobs/v2/6837303784049414631-242ac113-0001-007/outputs/media/filtered.fastq.gz"
+  },
+  "parameter": {
+  }
+}
+
+# Submit the job:
+% jobs-submit -F step02_fastqc.json
+Successfully submitted job 5666588050428915225-242ac113-0001-007
+
+# List job output:
+% jobs-output-list 5666588050428915225-242ac113-0001-007
+```
+
+If everything worked correctly, you should now see the final HTML file
+on `jobs-output-list`. As long as you remain on the SD2E tenant, much of the
+URI to the `input_file` will remain the same:
+
+```
+https://api.sd2e.org/        # base URL - DO NOT CHANGE
+jobs/v2/                     # refers to jobs API - DO NOT CHANGE
+68373037840494.../           # previous job ID
+outputs/media/               # location of output data - DO NOT CHANGE
+output                       # name of output file
+```
+
+<br>
+#### Parameter sweeps
+
+Most public SD2E apps are designed to take one input file or configuration, run
+an analysis, and return a result. With some simple scripting, it is possible to 
+perform parameter sweeps using multiple Agave jobs. For example, imagine you would
+like to run FastQC on a series of fastq files named: `fastq_01.fq`, `fastq_02.fq`,
+`fastq_03.fq`, etc:
+
+```
+# Organize data in one folder:
+% ls fastq_data/
+fastq_01.fq  fastq_02.fq  fastq_03.fq
+
+# Then upload all fastqc files to SD2E project data
+% files-upload -F fastq_data/ -S data-tacc-work-username username/
+
+# And make a template json file:
+% jobs-template fastqc-0.11.5u2 > fastqc.json
+```
+
+The next  step is to write a short script around the `fastqc.json` template 
+that populates the file name into a new job json file, then submits the job.
+Here is an example script:
+
+```
+#!/bin/bash
+
+for FILE in ` ls fastq_data/ `
+do
+
+cat <<EOF >fastqc.json
+{
+  "name":"FastQC $FILE",
+  "appId": "dnasubway-fastqc-singularity-stampede-0.11.4.0u3",
+  "archive": false,
+  "inputs": {
+    "input": "agave://data.iplantcollaborative.org/username/fastq_data/$FILE"
+  },
+  "parameters": {
+  }
+}
+EOF
+
+	jobs-submit -F fastqc.json
+
+done
+```
+
+Finally, execute the script:
+
+```
+% bash fastqc_parameter_sweep.sh
+Successfully submitted job 7024783153260326425-242ac113-0001-007
+Successfully submitted job 6823392136750886425-242ac113-0001-007
+Successfully submitted job 6633468682921766425-242ac113-0001-007
+```
+
+This is a simple control script with much room for advanced features and error
+checking.
+
+---
+Return to the [API Documentation Overview](../index.md)
