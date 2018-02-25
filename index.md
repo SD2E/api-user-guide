@@ -47,7 +47,7 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;**4 Advanced SD2E Features**
 
-&nbsp;&nbsp;&nbsp;&nbsp;4.1 Advanced Job Control / Workflows (*coming soon*)
+&nbsp;&nbsp;&nbsp;&nbsp;4.1 [Advanced Job Control and Workflows](docs/advanced_job.md)
 
 &nbsp;&nbsp;&nbsp;&nbsp;4.2 Integration with Jupyter (*coming soon*)
 
