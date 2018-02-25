@@ -156,7 +156,7 @@ https://api.sd2e.org/        # base URL - DO NOT CHANGE
 jobs/v2/                     # refers to jobs API - DO NOT CHANGE
 68373037840494.../           # previous job ID
 outputs/media/               # location of output data - DO NOT CHANGE
-output                       # name of output file
+4311028...free_reads.fastq   # name of output file
 ```
 
 <br>
