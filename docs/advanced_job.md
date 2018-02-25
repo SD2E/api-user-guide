@@ -96,8 +96,8 @@ using `FastQC`. For the first step, run `SortMeRNA` on sample data:
   "appId": "sortmerna-0.0.1u1",
   "archive": false,
   "inputs": {
-    "read1": "agave://data-sd2e-community/sample/kallisto/test/reads_1.fastq.gz",
-    "read2": "agave://data-sd2e-community/sample/kallisto/test/reads_2.fastq.gz"
+    "read1": "agave://data-sd2e-community/sample/rnaseq/test/4311028_S61_R1_001.fastq.gz",
+    "read2": "agave://data-sd2e-community/sample/rnaseq/test/4311028_S61_R2_001.fastq.gz"
   },
   "parameter": {
   }
@@ -116,10 +116,12 @@ in job API space until manually downloaded by the user, or until it expires and
 is lost. (Note: If `archive` is set to `true`, the job output will be downloaded
 automatically to: `~/tacc-work/username/archive/jobs/job-<job-number>`).
 
-If all goes well in the first job, the output sequence file will be visible by
-the `jobs-output-list` command. Ths file is called `filtered.fastq.gz`. To pipe that
-file into the next step of the pipeline (quality control check with `FastQC`),
-simply point directly to that file via the Agave jobs API:
+If all goes well in the first job, the output sequence file(s) will be visible
+by the `jobs-output-list` command. One of the filtered files is located in the
+top directory and is called `4311028_S61_R1_001_rna_free_reads.fastq`. To pipe
+that file into the next step of the pipeline (quality control check with
+`FastQC`), simply point directly to that file via the Agave jobs API and the
+job ID of the `SortMeRNA` job:
 
 ```
 # Create a job template file for step 2:
@@ -131,7 +133,7 @@ simply point directly to that file via the Agave jobs API:
   "appId": "fastqc-0.11.5u2",
   "archive": true,
   "inputs": {
-    "fastq": "https://api.sd2e.org/jobs/v2/6837303784049414631-242ac113-0001-007/outputs/media/filtered.fastq.gz"
+    "fastq": "https://api.sd2e.org/jobs/v2/6837303784049414631-242ac113-0001-007/outputs/media/4311028_S61_R1_001_rna_free_reads.fastq"
   },
   "parameter": {
   }
