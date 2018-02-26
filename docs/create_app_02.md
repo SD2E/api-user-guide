@@ -114,16 +114,16 @@ resonable `Dockerfile`. The `Dockerfile` should be located at the root directory
 ```
 FROM sd2e/base:ubuntu16
 
-RUN apt-get update 
-RUN apt-get upgrade -y 
-RUN apt-get install wget -y
-RUN apt-get install zip -y 
-RUN apt-get install default-jre -y 
+RUN apt-get update \
+    && apt-get upgrade -y \
+    && apt-get install wget -y \
+    && apt-get install zip -y \
+    && apt-get install default-jre -y 
 
-RUN wget https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.5.zip
-RUN unzip fastqc_v0.11.5.zip 
-RUN rm fastqc_v0.11.5.zip
-RUN chmod +x FastQC/fastqc 
+RUN wget https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.5.zip \
+    && unzip fastqc_v0.11.5.zip \
+    && rm fastqc_v0.11.5.zip \
+    && chmod +x FastQC/fastqc 
 
 ENV PATH "/FastQC/:$PATH"
 ```
