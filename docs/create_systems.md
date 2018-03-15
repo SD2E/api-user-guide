@@ -39,7 +39,7 @@ the home directory, `/home/username/`.
 #### Register a storage system
 
 Systems are stored in Agave as `json` objects. For a complete list of all valid
-fields in system descriptions, see the [Agave documentation](http://developer.agaveapi.co/#systems).
+fields in system descriptions, see the [Agave documentation](http://developer.tacc.cloud/).
 Instead of creating a new `json` system description by hand, start with the following
 storage system template:
 ```
@@ -148,8 +148,8 @@ Some of the new fields in this execution system include:
 
 For this execution system, there are two locations to cut and paste your SSH keys.
 Again, because keys will be stored in plain text in this file, do not share this
-file with anyone and keep it secure .More fields, including information about how to submit jobs to an `HPC` system
-using a queue can be found in the [Agave documentation](http://developer.agaveapi.co/#execution-systems).
+file with anyone and keep it secure. More fields, including information about how to submit jobs to an `HPC` system
+using a queue can be found in the [Agave documentation](http://developer.tacc.cloud/).
 
 Save the template in a file called `jetstream-execution-username.json`. 
 To register this system with Agave, use the following command:
