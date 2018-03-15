@@ -51,7 +51,7 @@ system (e.g. `hpc-tacc-maverick-username`), then you must also grant your
 collaborator the correct permissions on that system.
 
 *Tip: The app execution system is listed in the app.json file, or can be found
-by issuing '`apps-list -v app-name | grep executionSystem`'.*
+by issuing: '`apps-list -v --filter executionSystem app-name`'.*
 
 [Elsewhere in this user guide](create_app.md) we deployed our private
 app on our private exection system, `hpc-tacc-maverick-username`. Use the 
