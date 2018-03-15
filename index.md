@@ -64,3 +64,5 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 You can get more help by visiting the main [SD2E website](http://sd2e.org), or
 e-mailing us at `support-at-sd2e-dot-org`.
 
+Please visit the [Developer Documentation for TACC Cloud APIs](https://tacc.github.io/developer.tacc.cloud/)
+site for additional API support. 
