@@ -158,7 +158,7 @@ you may consider disabling the earlier app. The following command toggles the
 #### Further help
 
 Additional system and app `json` fields can be found in in the online
-[Agave documentation](http://developer.agaveapi.co/).
+[Agave documentation](http://developer.tacc.cloud/).
 
 
 
