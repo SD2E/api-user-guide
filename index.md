@@ -39,7 +39,7 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;&nbsp;&nbsp;3.1 [Create Private Systems](docs/create_systems.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;3.2 [Create Custom Applications](docs/create_app.md)
+&nbsp;&nbsp;&nbsp;&nbsp;3.2 [Create Custom Applications](docs/create_app.md) (*needs updating*)
 
 &nbsp;&nbsp;&nbsp;&nbsp;3.3 [Share an Application with Others](docs/share_app.md)
 
@@ -49,11 +49,19 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;&nbsp;&nbsp;4.1 [Advanced Job Control and Workflows](docs/advanced_job.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;4.2 Integration with Jupyter (*coming soon*)
+&nbsp;&nbsp;&nbsp;&nbsp;4.2 [Singularity GPGPU Containers](docs/singularity_gpu_01.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;4.3 Actor Based Containers (*coming soon*)
+&nbsp;&nbsp;&nbsp;&nbsp;4.3 Integration with Jupyter (*coming soon*)
 
-&nbsp;&nbsp;&nbsp;&nbsp;4.4 [Singularity GPGPU Containers](docs/singularity_gpu_01.md)
+&nbsp;&nbsp;**5 Actor Based Containers**
+
+&nbsp;&nbsp;&nbsp;&nbsp;5.1 Abaco Command Line Interface (*coming soon*)
+
+&nbsp;&nbsp;&nbsp;&nbsp;5.2 Deploying a Simple Reactor (*coming soon*)
+
+&nbsp;&nbsp;&nbsp;&nbsp;5.3 Building a Custom Reactor (*coming soon*)
+
+&nbsp;&nbsp;&nbsp;&nbsp;5.4 Integration with Jenkins (*coming soon*)
 
 
 
