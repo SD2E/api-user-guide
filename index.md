@@ -15,7 +15,7 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;&nbsp;&nbsp;1.1 [Request Access to the SD2E Platform](docs/request_access.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;1.2 [Install and Configure the CLI](docs/install_cli.md)
+&nbsp;&nbsp;&nbsp;&nbsp;1.2 [Install and Configure the SD2E CLI](docs/install_cli.md)
 
 &nbsp;&nbsp;&nbsp;&nbsp;1.3 [Create the Client API Keys](docs/create_client.md)
 
@@ -23,7 +23,8 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;&nbsp;&nbsp;1.5 [SSH Key Pairs](docs/ssh_keys.md)
 
-&nbsp;&nbsp;**2 Using the SD2E API**
+
+&nbsp;&nbsp;**2 Agave CLI Basics**
 
 &nbsp;&nbsp;&nbsp;&nbsp;2.1 [Storage and Execution System Basics](docs/systems_basics.md)
 
@@ -35,26 +36,54 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;&nbsp;&nbsp;2.5 [Prepare and Submit a Job](docs/submit_job.md)
 
-&nbsp;&nbsp;**3 Customizing the SD2E API**
+&nbsp;&nbsp;&nbsp;&nbsp;2.6 [Create Private Systems](docs/create_systems.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;3.1 [Create Private Systems](docs/create_systems.md)
+&nbsp;&nbsp;&nbsp;&nbsp;2.7 [Modify Existing Systems and Applications](docs/modify.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;3.2 [Create Custom Applications](docs/create_app.md)
+&nbsp;&nbsp;&nbsp;&nbsp;2.8 [Advanced Job Control and Workflows](docs/advanced_job.md)
+
+
+&nbsp;&nbsp;**3 Agave Apps**
+
+&nbsp;&nbsp;&nbsp;&nbsp;3.1 Create Custom Applications: Apps-Init (*coming soon*)
+
+&nbsp;&nbsp;&nbsp;&nbsp;3.2 Deploy Custom Applications: Apps-Deploy (*coming soon*)
 
 &nbsp;&nbsp;&nbsp;&nbsp;3.3 [Share an Application with Others](docs/share_app.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;3.4 [Modify Existing Systems and Applications](docs/modify.md)
+&nbsp;&nbsp;&nbsp;&nbsp;3.4 Continuous Integration with Jenkins (*coming soon*)
 
-&nbsp;&nbsp;**4 Advanced SD2E Features**
+&nbsp;&nbsp;&nbsp;&nbsp;3.5 [Old App Building Process](docs/create_app.md) (*Deprecated*)
 
-&nbsp;&nbsp;&nbsp;&nbsp;4.1 [Advanced Job Control and Workflows](docs/advanced_job.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;4.2 Integration with Jupyter (*coming soon*)
+&nbsp;&nbsp;**4 Abaco Reactors**
 
-&nbsp;&nbsp;&nbsp;&nbsp;4.3 Actor Based Containers (*coming soon*)
+&nbsp;&nbsp;&nbsp;&nbsp;4.1 Abaco CLI Basics (*coming soon*)
 
-&nbsp;&nbsp;&nbsp;&nbsp;4.4 [Singularity GPGPU Containers](docs/singularity_gpu_01.md)
+&nbsp;&nbsp;&nbsp;&nbsp;4.2 Create Custom Reactors: Abaco Init (*coming soon*)
 
+&nbsp;&nbsp;&nbsp;&nbsp;4.3 Deploy Custom Reactors: Abaco Deploy (*coming soon*)
+
+&nbsp;&nbsp;&nbsp;&nbsp;4.4 Share a Reactor with Others (*coming soon*)
+
+&nbsp;&nbsp;&nbsp;&nbsp;4.5 Continuous Integration with Jenkins (*coming soon*)
+
+&nbsp;&nbsp;&nbsp;&nbsp;4.6 Automated Notifications and Message Passing (*coming soon*)
+
+
+&nbsp;&nbsp;**5 Advanced SD2E Features**
+
+&nbsp;&nbsp;&nbsp;&nbsp;5.1 Agavepy (*coming soon*)
+
+&nbsp;&nbsp;&nbsp;&nbsp;5.2 AgaveDB (*coming soon*)
+
+&nbsp;&nbsp;&nbsp;&nbsp;5.3 Jupyter Notebooks (*coming soon*)
+
+&nbsp;&nbsp;&nbsp;&nbsp;5.4 [Singularity GPGPU Containers](docs/singularity_gpu_01.md)
+
+
+&nbsp;&nbsp;**6 Placeholder**
+&nbsp;&nbsp;**7 Reference Pages**
 
 
 
