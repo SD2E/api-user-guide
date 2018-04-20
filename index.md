@@ -24,7 +24,7 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 &nbsp;&nbsp;&nbsp;&nbsp;1.5 [SSH Key Pairs](docs/01.ssh_keys.md)
 
 
-&nbsp;&nbsp;**2 Agave CLI Basics**
+&nbsp;&nbsp;**2 Agave CLI Essentials**
 
 &nbsp;&nbsp;&nbsp;&nbsp;2.1 [Storage and Execution System Basics](docs/02.systems_basics.md)
 
@@ -38,22 +38,24 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;&nbsp;&nbsp;2.6 [Create Private Systems](docs/02.create_systems.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;2.7 [Modify Existing Systems and Applications](docs/02.modify_systems.md)
+&nbsp;&nbsp;&nbsp;&nbsp;2.7 [Modify an Existing System](docs/02.modify_systems.md)
 
 &nbsp;&nbsp;&nbsp;&nbsp;2.8 [Advanced Job Control and Workflows](docs/02.advanced_job.md)
 
 
-&nbsp;&nbsp;**3 Agave Apps**
+&nbsp;&nbsp;**3 Agave Applications**
 
 &nbsp;&nbsp;&nbsp;&nbsp;3.1 Create Custom Applications: Apps-Init (*coming soon*)
 
 &nbsp;&nbsp;&nbsp;&nbsp;3.2 Deploy Custom Applications: Apps-Deploy (*coming soon*)
 
-&nbsp;&nbsp;&nbsp;&nbsp;3.3 [Share an Application with Others](docs/share_app.md)
+&nbsp;&nbsp;&nbsp;&nbsp;3.3 [Share an Application with Others](docs/03.share_app.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;3.4 Continuous Integration with Jenkins (*coming soon*)
+&nbsp;&nbsp;&nbsp;&nbsp;3.4 [Modify an Existing Application](docs/03.modify_app.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;3.5 [Old App Building Process](docs/create_app.md) (*Deprecated*)
+&nbsp;&nbsp;&nbsp;&nbsp;3.5 Continuous Integration with Jenkins (*coming soon*)
+
+&nbsp;&nbsp;&nbsp;&nbsp;3.6 [Old App Building Process](docs/03.old_create_app.md) (*deprecated*)
 
 
 &nbsp;&nbsp;**4 Abaco Reactors**
@@ -94,5 +96,5 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 You can get more help by visiting the main [SD2E website](http://sd2e.org), or
 e-mailing us at `support-at-sd2e-dot-org`.
 
-Please visit the [Developer Documentation for TACC Cloud APIs](https://tacc.github.io/developer.tacc.cloud/)
+Please visit the [Developer Documentation for TACC Cloud APIs](http://developer.tacc.cloud/)
 site for additional API support.
