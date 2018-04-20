@@ -13,15 +13,15 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;**1 Getting Started**
 
-&nbsp;&nbsp;&nbsp;&nbsp;1.1 [Request Access to the SD2E Platform](docs/request_access.md)
+&nbsp;&nbsp;&nbsp;&nbsp;1.1 [Request Access to the SD2E Platform](docs/01.01.request_access.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;1.2 [Install and Configure the SD2E CLI](docs/install_cli.md)
+&nbsp;&nbsp;&nbsp;&nbsp;1.2 [Install and Configure the SD2E CLI](docs/01.02.install_cli.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;1.3 [Create the Client API Keys](docs/create_client.md)
+&nbsp;&nbsp;&nbsp;&nbsp;1.3 [Create the Client API Keys](docs/01.03.create_client.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;1.4 [Authorize with the SD2E Tenant](docs/authorization.md)
+&nbsp;&nbsp;&nbsp;&nbsp;1.4 [Authorize with the SD2E Tenant](docs/01.04.authorization.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;1.5 [SSH Key Pairs](docs/ssh_keys.md)
+&nbsp;&nbsp;&nbsp;&nbsp;1.5 [SSH Key Pairs](docs/01.05.ssh_keys.md)
 
 
 &nbsp;&nbsp;**2 Agave CLI Basics**
@@ -83,6 +83,7 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 
 &nbsp;&nbsp;**6 Placeholder**
+
 &nbsp;&nbsp;**7 Reference Pages**
 
 
@@ -94,4 +95,4 @@ You can get more help by visiting the main [SD2E website](http://sd2e.org), or
 e-mailing us at `support-at-sd2e-dot-org`.
 
 Please visit the [Developer Documentation for TACC Cloud APIs](https://tacc.github.io/developer.tacc.cloud/)
-site for additional API support. 
+site for additional API support.
