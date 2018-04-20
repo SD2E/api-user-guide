@@ -13,34 +13,34 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;**1 Getting Started**
 
-&nbsp;&nbsp;&nbsp;&nbsp;1.1 [Request Access to the SD2E Platform](docs/01.01.request_access.md)
+&nbsp;&nbsp;&nbsp;&nbsp;1.1 [Request Access to the SD2E Platform](docs/01.request_access.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;1.2 [Install and Configure the SD2E CLI](docs/01.02.install_cli.md)
+&nbsp;&nbsp;&nbsp;&nbsp;1.2 [Install and Configure the SD2E CLI](docs/01.install_cli.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;1.3 [Create the Client API Keys](docs/01.03.create_client.md)
+&nbsp;&nbsp;&nbsp;&nbsp;1.3 [Create the Client API Keys](docs/01.create_client.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;1.4 [Authorize with the SD2E Tenant](docs/01.04.authorization.md)
+&nbsp;&nbsp;&nbsp;&nbsp;1.4 [Authorize with the SD2E Tenant](docs/01.authorization.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;1.5 [SSH Key Pairs](docs/01.05.ssh_keys.md)
+&nbsp;&nbsp;&nbsp;&nbsp;1.5 [SSH Key Pairs](docs/01.ssh_keys.md)
 
 
 &nbsp;&nbsp;**2 Agave CLI Basics**
 
-&nbsp;&nbsp;&nbsp;&nbsp;2.1 [Storage and Execution System Basics](docs/systems_basics.md)
+&nbsp;&nbsp;&nbsp;&nbsp;2.1 [Storage and Execution System Basics](docs/02.systems_basics.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;2.2 [Data Management: File Operations](docs/data_management.md)
+&nbsp;&nbsp;&nbsp;&nbsp;2.2 [Data Management: File Operations](docs/02.data_management.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;2.3 [Data Management: Share and Import](docs/share_import.md)
+&nbsp;&nbsp;&nbsp;&nbsp;2.3 [Data Management: Share and Import](docs/02.share_import.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;2.4 [Find an Application](docs/find_application.md)
+&nbsp;&nbsp;&nbsp;&nbsp;2.4 [Find an Application](docs/02.find_application.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;2.5 [Prepare and Submit a Job](docs/submit_job.md)
+&nbsp;&nbsp;&nbsp;&nbsp;2.5 [Prepare and Submit a Job](docs/02.submit_job.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;2.6 [Create Private Systems](docs/create_systems.md)
+&nbsp;&nbsp;&nbsp;&nbsp;2.6 [Create Private Systems](docs/02.create_systems.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;2.7 [Modify Existing Systems and Applications](docs/modify.md)
+&nbsp;&nbsp;&nbsp;&nbsp;2.7 [Modify Existing Systems and Applications](docs/02.modify_systems.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;2.8 [Advanced Job Control and Workflows](docs/advanced_job.md)
+&nbsp;&nbsp;&nbsp;&nbsp;2.8 [Advanced Job Control and Workflows](docs/02.advanced_job.md)
 
 
 &nbsp;&nbsp;**3 Agave Apps**
