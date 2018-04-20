@@ -45,15 +45,15 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;**3 Agave Applications**
 
-&nbsp;&nbsp;&nbsp;&nbsp;3.1 Create Custom Applications: Apps-Init (*coming soon*)
+&nbsp;&nbsp;&nbsp;&nbsp;3.1 [Create a Custom Application: Apps-Init](docs/03.apps_init.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;3.2 Deploy Custom Applications: Apps-Deploy (*coming soon*)
+&nbsp;&nbsp;&nbsp;&nbsp;3.2 [Deploy a Custom Application: Apps-Deploy](docs/03.apps_deploy.md)
 
 &nbsp;&nbsp;&nbsp;&nbsp;3.3 [Share an Application with Others](docs/03.share_app.md)
 
 &nbsp;&nbsp;&nbsp;&nbsp;3.4 [Modify an Existing Application](docs/03.modify_app.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;3.5 Continuous Integration with Jenkins (*coming soon*)
+&nbsp;&nbsp;&nbsp;&nbsp;3.5 [Continuous Integration with Jenkins](03.apps_ci_jenkins.md)
 
 &nbsp;&nbsp;&nbsp;&nbsp;3.6 [Old App Building Process](docs/03.old_create_app.md) (*deprecated*)
 
@@ -62,9 +62,9 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;&nbsp;&nbsp;4.1 Abaco CLI Basics (*coming soon*)
 
-&nbsp;&nbsp;&nbsp;&nbsp;4.2 Create Custom Reactors: Abaco Init (*coming soon*)
+&nbsp;&nbsp;&nbsp;&nbsp;4.2 Create a Custom Reactor: Abaco Init (*coming soon*)
 
-&nbsp;&nbsp;&nbsp;&nbsp;4.3 Deploy Custom Reactors: Abaco Deploy (*coming soon*)
+&nbsp;&nbsp;&nbsp;&nbsp;4.3 Deploy a Custom Reactor: Abaco Deploy (*coming soon*)
 
 &nbsp;&nbsp;&nbsp;&nbsp;4.4 Share a Reactor with Others (*coming soon*)
 
@@ -81,12 +81,23 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;&nbsp;&nbsp;5.3 Jupyter Notebooks (*coming soon*)
 
-&nbsp;&nbsp;&nbsp;&nbsp;5.4 [Singularity GPGPU Containers](docs/singularity_gpu_01.md)
+&nbsp;&nbsp;&nbsp;&nbsp;5.4 [Run Containers on GPUs](docs/05.container_gpu.md)
 
 
-&nbsp;&nbsp;**6 Placeholder**
+&nbsp;&nbsp;**6 Other CLI Tools**
+
+&nbsp;&nbsp;&nbsp;&nbsp;6.1 TACC Lab CLI (*coming soon*)
+
+&nbsp;&nbsp;&nbsp;&nbsp;6.2 TACC Registry CLI (*coming soon*)
+
 
 &nbsp;&nbsp;**7 Reference Pages**
+
+&nbsp;&nbsp;&nbsp;&nbsp;7.1 Base Images (*coming soon*)
+
+&nbsp;&nbsp;&nbsp;&nbsp;7.2 Applications (*coming soon*)
+
+&nbsp;&nbsp;&nbsp;&nbsp;7.3 Reactors (*coming soon*)
 
 
 
