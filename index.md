@@ -51,7 +51,7 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;&nbsp;&nbsp;3.3 [Modify an Existing Application](docs/03.modify_app.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;3.4 [Continuous Integration with Jenkins](docs/03.apps_ci_jenkins.md)
+&nbsp;&nbsp;&nbsp;&nbsp;3.4 [Continuous Integration with Jenkins](docs/03.apps_ci_jenkins.md) (*coming soon*)
 
 &nbsp;&nbsp;&nbsp;&nbsp;3.5 [Old App Building Process](docs/old/03.old_create_app.md) (*deprecated*)
 
@@ -73,20 +73,21 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;**5 Advanced SD2E Features**
 
-&nbsp;&nbsp;&nbsp;&nbsp;5.1 Agavepy (*coming soon*)
+&nbsp;&nbsp;&nbsp;&nbsp;5.1 [Run Containers on GPUs](docs/05.container_gpu.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;5.2 AgaveDB (*coming soon*)
+&nbsp;&nbsp;&nbsp;&nbsp;5.2 Agavepy (*coming soon*)
 
-&nbsp;&nbsp;&nbsp;&nbsp;5.3 Jupyter Notebooks (*coming soon*)
+&nbsp;&nbsp;&nbsp;&nbsp;5.3 AgaveDB (*coming soon*)
 
-&nbsp;&nbsp;&nbsp;&nbsp;5.4 [Run Containers on GPUs](docs/05.container_gpu.md)
+&nbsp;&nbsp;&nbsp;&nbsp;5.4 Jupyter Notebooks (*coming soon*)
+
 
 
 &nbsp;&nbsp;**6 Quick Reference**
 
 &nbsp;&nbsp;&nbsp;&nbsp;6.1 [Commands Quick Reference](docs/06.commands_reference.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;6.2 Base Images (*coming soon*)
+&nbsp;&nbsp;&nbsp;&nbsp;6.2 [Base Images](docs/06.base_images.md)
 
 &nbsp;&nbsp;&nbsp;&nbsp;6.3 Applications (*coming soon*)
 
