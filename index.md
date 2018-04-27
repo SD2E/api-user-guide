@@ -51,24 +51,20 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;&nbsp;&nbsp;3.3 [Modify an Existing Application](docs/03.modify_app.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;3.4 [Continuous Integration with Jenkins](docs/03.apps_ci_jenkins.md) (*coming soon*)
+&nbsp;&nbsp;&nbsp;&nbsp;3.4 [Continuous Integration with Jenkins](docs/03.apps_ci_jenkins.md) (*work in progress*)
 
 &nbsp;&nbsp;&nbsp;&nbsp;3.5 [Old App Building Process](docs/old/03.old_create_app.md) (*deprecated*)
 
 
 &nbsp;&nbsp;**4 Abaco Reactors**
 
-&nbsp;&nbsp;&nbsp;&nbsp;4.1 Abaco CLI Basics (*coming soon*)
+&nbsp;&nbsp;&nbsp;&nbsp;4.1 [Abaco CLI Basics](docs/04.abaco_cli.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;4.2 Create a Custom Reactor: Abaco Init (*coming soon*)
+&nbsp;&nbsp;&nbsp;&nbsp;4.2 Create a Custom Reactor (*coming soon*)
 
-&nbsp;&nbsp;&nbsp;&nbsp;4.3 Deploy a Custom Reactor: Abaco Deploy (*coming soon*)
+&nbsp;&nbsp;&nbsp;&nbsp;4.3 Continuous Integration with Jenkins (*coming soon*)
 
-&nbsp;&nbsp;&nbsp;&nbsp;4.4 Share a Reactor with Others (*coming soon*)
-
-&nbsp;&nbsp;&nbsp;&nbsp;4.5 Continuous Integration with Jenkins (*coming soon*)
-
-&nbsp;&nbsp;&nbsp;&nbsp;4.6 Automated Notifications and Message Passing (*coming soon*)
+&nbsp;&nbsp;&nbsp;&nbsp;4.4 Automated Notifications and Message Passing (*coming soon*)
 
 
 &nbsp;&nbsp;**5 Advanced SD2E Features**
@@ -89,9 +85,7 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;&nbsp;&nbsp;6.2 [Base Images](docs/06.base_images.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;6.3 Applications (*coming soon*)
-
-&nbsp;&nbsp;&nbsp;&nbsp;6.4 Reactors (*coming soon*)
+&nbsp;&nbsp;&nbsp;&nbsp;6.3 [Useful Links](docs/06.links.md)
 
 
 
