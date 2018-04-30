@@ -55,11 +55,11 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;**5 Actor Based Containers**
 
-&nbsp;&nbsp;&nbsp;&nbsp;5.1 Abaco Command Line Interface (*coming soon*)
+&nbsp;&nbsp;&nbsp;&nbsp;5.1 [Abaco Command Line Interface] (*coming soon*)
 
 &nbsp;&nbsp;&nbsp;&nbsp;5.2 Deploying a Simple Reactor (*coming soon*)
 
-&nbsp;&nbsp;&nbsp;&nbsp;5.3 Building a Custom Reactor (*coming soon*)
+&nbsp;&nbsp;&nbsp;&nbsp;5.3 [Building a Custom Reactor](docs/abaco_custom_reactor.md)
 
 &nbsp;&nbsp;&nbsp;&nbsp;5.4 Integration with Jenkins (*coming soon*)
 
@@ -73,4 +73,4 @@ You can get more help by visiting the main [SD2E website](http://sd2e.org), or
 e-mailing us at `support-at-sd2e-dot-org`.
 
 Please visit the [Developer Documentation for TACC Cloud APIs](https://tacc.github.io/developer.tacc.cloud/)
-site for additional API support. 
+site for additional API support.
