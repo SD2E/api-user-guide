@@ -21,7 +21,9 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;&nbsp;&nbsp;1.4 [Authorize with the SD2E Tenant](docs/01.authorization.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;1.5 [SSH Key Pairs](docs/01.ssh_keys.md)
+&nbsp;&nbsp;&nbsp;&nbsp;1.5 [Manage Multiple Accounts or Tenants](docs/01.manage_tokens.md)
+
+&nbsp;&nbsp;&nbsp;&nbsp;1.6 [SSH Key Pairs](docs/01.ssh_keys.md)
 
 
 &nbsp;&nbsp;**2 Agave CLI Essentials**
