@@ -57,6 +57,8 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;&nbsp;&nbsp;3.5 [Old App Building Process](docs/old/03.old_create_app.md) (*deprecated*)
 
+&nbsp;&nbsp;&nbsp;&nbsp;3.6 [Migrate Apps from Maverick](docs/03.migrate_from_maverick.html)
+
 
 &nbsp;&nbsp;**4 Abaco Reactors**
 
