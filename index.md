@@ -81,6 +81,7 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;&nbsp;&nbsp;5.4 Jupyter Notebooks (*coming soon*)
 
+&nbsp;&nbsp;&nbsp;&nbsp;[5.5 Archiving to Ranch](docs/05.archiving_ranch.md)
 
 
 &nbsp;&nbsp;**6 Quick Reference**
