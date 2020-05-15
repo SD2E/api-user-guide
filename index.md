@@ -4,6 +4,17 @@ title: API Documentation Overview
 tagline:
 ---
 
+** NOTE ** An early release of the next-generation Tapis Command Line Interface
+is now available for testing. This new version of the CLI will eventually supersede
+the SD2E CLI. Command line reference and how-to guides are available here:
+
+[Tapis CLI Reference Docs](https://tapis-cli.readthedocs.io/en/latest/)
+[Tapis CLI How-to Guide](https://tapis-cli-how-to-guide.readthedocs.io/en/latest/)
+
+
+<br><br>
+
+
 SD2E APIs are an instance of the TACC Cloud APIs. The SD2E API provides the command
 line interface, tooling, scripts, and configuration necessary for interacting with
 the SD2E platform. Documentation for getting started with the SD2E API is below.
@@ -66,22 +77,12 @@ the SD2E platform. Documentation for getting started with the SD2E API is below.
 
 &nbsp;&nbsp;&nbsp;&nbsp;4.2 [Create a Custom Reactor](docs/04.abaco_custom_reactor.html)
 
-&nbsp;&nbsp;&nbsp;&nbsp;4.3 Continuous Integration with Jenkins (*coming soon*)
-
-&nbsp;&nbsp;&nbsp;&nbsp;4.4 Automated Notifications and Message Passing (*coming soon*)
-
 
 &nbsp;&nbsp;**5 Advanced SD2E Features**
 
 &nbsp;&nbsp;&nbsp;&nbsp;5.1 [Run Containers on GPUs](docs/05.container_gpu.md)
 
-&nbsp;&nbsp;&nbsp;&nbsp;5.2 Agavepy (*coming soon*)
-
-&nbsp;&nbsp;&nbsp;&nbsp;5.3 AgaveDB (*coming soon*)
-
-&nbsp;&nbsp;&nbsp;&nbsp;5.4 Jupyter Notebooks (*coming soon*)
-
-&nbsp;&nbsp;&nbsp;&nbsp;[5.5 Archiving to Ranch](docs/05.archiving_ranch.md)
+&nbsp;&nbsp;&nbsp;&nbsp;5.2 [Archiving to Ranch](docs/05.archiving_ranch.md)
 
 
 &nbsp;&nbsp;**6 Quick Reference**
