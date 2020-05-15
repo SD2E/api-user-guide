@@ -4,11 +4,12 @@ title: API Documentation Overview
 tagline:
 ---
 
-** NOTE ** An early release of the next-generation Tapis Command Line Interface
+**NOTE** An early release of the next-generation Tapis Command Line Interface
 is now available for testing. This new version of the CLI will eventually supersede
 the SD2E CLI. Command line reference and how-to guides are available here:
 
 [Tapis CLI Reference Docs](https://tapis-cli.readthedocs.io/en/latest/)
+
 [Tapis CLI How-to Guide](https://tapis-cli-how-to-guide.readthedocs.io/en/latest/)
 
 
